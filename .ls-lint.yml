@@ -1,0 +1,7 @@
+ls:
+  packages/*/{src,__tests__}:
+    .js: lowercase | camelcase | pascalcase | snakecase | kebabcase
+    .ts: camelCase | PascalCase
+    .d.ts: camelCase
+    .spec.ts: camelCase | PascalCase
+    .mock.ts: camelCase
