@@ -1,4 +1,8 @@
-# Vitesse-lite
+# normojs
+
+#### Fork https://github.com/kn0wn/vitesse-lite 
+
+
 
 A lighter version of Antfu's Vue3 boilerplate, if you like this please support Antfu's work using the sponsor button on this page.
 
@@ -12,8 +16,6 @@ A lighter version of Antfu's Vue3 boilerplate, if you like this please support A
 
 - 📲 [Components auto importing](./src/components)
 
-- 🎨 TailwindCSS with dark mode out-of-box
-
 - 🦾 TypeScript, of course
 
 - ☁️ Deploy on Netlify, zero config
@@ -21,10 +23,6 @@ A lighter version of Antfu's Vue3 boilerplate, if you like this please support A
 <br>
 
 ## Pre-packed
-
-### UI Frameworks
-
-- [Tailwind CSS](https://tailwindcss.com/) - with built-in dark mode!
 
 ### Plugins
 
@@ -36,7 +34,6 @@ A lighter version of Antfu's Vue3 boilerplate, if you like this please support A
 ### Coding Style
 
 - Use Composition API with [`<script setup>` SFC](https://github.com/vuejs/rfcs/blob/sfc-improvements/active-rfcs/0000-sfc-script-setup.md)
-- [ESLint](https://eslint.org/) with [@antfu/eslint-config-vue](https://github.com/antfu/eslint-config), single colons, no semi.
 
 ### Dev tools
 
@@ -56,23 +53,26 @@ A lighter version of Antfu's Vue3 boilerplate, if you like this please support A
 
 ### Clone to local
 
-If you prefer do to it manually with cleaner git history
+```shell
+git clone https://github.com/fulus06/normojs.git
 
-```bash
-npx degit kn0wn/vitesse-lite my-vitesse-lite-app
-cd my-vitesse-lite-app
-npm i
+cd ./normojs
+
+# install node_modules
+yarn
+
+yarn run dev
 ```
+
+
 
 ## Checklist
 
 When you use this template, try follow the checklist to update your info properly
 
 - [ ] Rename `name` field in `package.json`
-- [ ] Change the author name in `LICENSE`
 - [ ] Change the title in `index.html`
 - [ ] Change the favicon in `public`
-- [ ] Remove the `.github` folder which contains the funding info
 - [ ] Clean up the READMEs and remove routes
 
 And, enjoy :)
