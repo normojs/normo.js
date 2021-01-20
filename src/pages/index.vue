@@ -15,21 +15,23 @@
       class="px-4 py-2 border border-gray-200 rounded text-center text-sm outline-none active:outline-none bg-transparent dark:border-gray-700"
       style="width: 250px"
       @keydown.enter="go"
-    />
+    >
 
     <div>
-      <button class="btn m-3 text-sm" :disabled="!name" @click="go">go</button>
+      <button class="btn m-3 text-sm" :disabled="!name" @click="go">
+        go
+      </button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { ref } from 'vue'
+import { defineComponent, ref } from 'vue'
+
 import { useRouter } from 'vue-router'
 
 export default defineComponent({
-  setup() {
+  setup () {
     const name = ref('')
     const router = useRouter()
     const go = () => {
