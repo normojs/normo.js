@@ -2,12 +2,13 @@
   "name": "normojs",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --port 3333",
+    "dev": "npm run normo",
     "dev:open": "vite --port 3333 --open",
     "build": "cross-env NODE_ENV=production vite build",
     "ls-lint": "ls-lint",
     "lint": "eslint --ext .js,.ts,.vue src/",
-    "lint:fix": "eslint --fix --ext .js,.ts,.vue src/"
+    "lint:fix": "eslint --fix --ext .js,.ts,.vue src/",
+    "normo": "vite --port 3333 --config normo.config.ts"
   },
   "lint-staged": {
     "nopackages/**/{src,__tests__,config}/**/**.{js,vue,ts,tsx}": [

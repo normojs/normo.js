@@ -4,6 +4,7 @@
     "module": "ESNext",
     "target": "es2016",
     "lib": ["DOM", "ESNext"],
+    "isolatedModules": true,
     "strict": true,
     "esModuleInterop": true,
     "incremental": true,

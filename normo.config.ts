@@ -1,14 +1,21 @@
 import path from 'path'
-import { UserConfig } from 'vite'
+import { defineConfig } from 'vite'
+// vite对vue3 SFC的支持
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
 import ViteComponents from 'vite-plugin-components'
-// const alias = {
-//   '@/': path.resolve(__dirname, 'src')
-// }
-const config: UserConfig = {
+
+export default defineConfig({
   alias: {
     '@/': `${path.resolve(__dirname, 'src')}/`
+  },
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, '.normo/index.html')
+        // nested: resolve(__dirname, 'nested/index.html')
+      }
+    }
   },
   plugins: [
     Vue(),
@@ -21,6 +28,6 @@ const config: UserConfig = {
       // alias
     })
   ]
-}
+})
 
-export default config
+// export default config
