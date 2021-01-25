@@ -1,3 +1,7 @@
 {
-  "recommendations": ["octref.vetur", "dbaeumer.vscode-eslint", "bradlc.vscode-tailwindcss"]
+  "recommendations": [
+    "johnsoncodehk.volar",
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss"
+  ]
 }

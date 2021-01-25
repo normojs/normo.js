@@ -16,14 +16,14 @@
     ]
   },
   "dependencies": {
-    "@vueuse/core": "^4.0.0-beta.11",
-    "vue": "^3.0.0-rc.10",
-    "vue-router": "^4.0.0-beta.12",
+    "@vueuse/core": "^4.0.10",
+    "vue": "^3.0.5",
+    "vue-router": "^4.0.3",
     "nprogress": "^0.2.0"
   },
   "devDependencies": {
-    "@vue/compiler-sfc": "^3.0.0-rc.10",
-    "@vitejs/plugin-vue": "^1.1.0",
+    "@vue/compiler-sfc": "^3.0.5",
+    "@vitejs/plugin-vue": "^1.1.2",
     "@types/nprogress": "^0.2.0",
     "@types/node": "^14.14.22",
     "cross-env": "^7.0.2",
@@ -32,10 +32,10 @@
     "prettier": "^2.1.2",
     "tailwindcss": "^1.8.10",
     "typescript": "^4.0.2",
-    "vite": "^2.0.0-beta.35",
+    "vite": "^2.0.0-beta.46",
     "vite-plugin-components": "^0.6.6",
     "vite-plugin-pages": "^0.1.4",
-    "vite-ssg": "^0.4.1",
+    "vite-ssg": "^0.4.2",
     "yorkie": "^2.0.0"
   }
 }

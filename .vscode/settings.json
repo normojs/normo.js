@@ -1,5 +1,4 @@
 {
-  "vetur.experimental.templateInterpolationService": true,
   "editor.codeActionsOnSave": {
     // 保存自动格式化
     "source.fixAll.eslint": true

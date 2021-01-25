@@ -35,7 +35,7 @@ export default defineComponent({
     const name = ref('')
     const router = useRouter()
     const go = () => {
-      if (name.value) router.push(`/hi/${name.value}`)
+      if (name.value) router.push(`/hi/${encodeURIComponent(name.value)}`)
     }
 
     return {
