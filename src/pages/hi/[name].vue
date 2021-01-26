@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>hi {{ name }} {{ name2 }}</p>
+    <p>你好 {{ name }} {{ name2 }}</p>
     <p class="text-sm opacity-50">
       <em>dynamic.route</em>
     </p>

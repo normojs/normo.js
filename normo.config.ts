@@ -18,6 +18,7 @@ export default defineConfig({
     }
   },
   plugins: [
+    // 支持vue
     Vue(),
     // https://github.com/hannoeru/vite-plugin-pages
     Pages(),

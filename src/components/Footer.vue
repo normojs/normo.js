@@ -1,10 +1,9 @@
 <template>
-  <div class="text-xl mt-6">
+  <div class="text-xl" style="display: flex;">
     <div class="icon-btn mx-2" @click="isDark = !isDark">
       DM
     </div>
-
-    <a class="icon-btn mx-2" href="https://github.com/antfu/vitesse" target="_blank"> G </a>
+    你好啊！！
   </div>
 </template>
 

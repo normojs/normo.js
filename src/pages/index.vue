@@ -1,18 +1,15 @@
 <template>
   <div>
     <p>
-      <a href="https://github.com/antfu/vitesse" target="_blank"> Vitesse </a>
+      <a href="https://github.com/fulus06/normojs" target="_blank"> normojs </a>
     </p>
     <p class="text-sm opacity-50">
-      <em>intro</em>
+      <em>描述：仿nuxtjs</em>
     </p>
-
-    <div class="py-4" />
 
     <input
       v-model="name"
-      placeholder="What's your name"
-      class="px-4 py-2 border border-gray-200 rounded text-center text-sm outline-none active:outline-none bg-transparent dark:border-gray-700"
+      placeholder="请输入 name"
       style="width: 250px"
       @keydown.enter="go"
     >

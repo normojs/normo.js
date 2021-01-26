@@ -5,10 +5,10 @@ import { colorSchema } from '../store'
 const preferredDark = usePreferredDark()
 
 export const isDark = computed({
-  get() {
+  get () {
     return colorSchema.value === 'auto' ? preferredDark.value : colorSchema.value === 'dark'
   },
-  set(v: boolean) {
+  set (v: boolean) {
     if (v === preferredDark.value) colorSchema.value = 'auto'
     else colorSchema.value = v ? 'dark' : 'light'
   }
