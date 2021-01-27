@@ -6,6 +6,8 @@ import Pages from 'vite-plugin-pages'
 import ViteComponents from 'vite-plugin-components'
 
 export default defineConfig({
+  // TODO https://github.com/vitejs/vite/issues/306
+  // root: path.resolve(__dirname, '.normo'),
   alias: {
     '@/': `${path.resolve(__dirname, 'src')}/`
   },
