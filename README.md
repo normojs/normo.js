@@ -2,9 +2,11 @@
 
 #### Fork https://github.com/kn0wn/vitesse-lite 
 
+Imitate the directory structure of nuxt.js base vite2、vue3
 
 
-A lighter version of Antfu's Vue3 boilerplate, if you like this please support Antfu's work using the sponsor button on this page.
+
+TODO 
 
 <br>
 
