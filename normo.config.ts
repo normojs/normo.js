@@ -10,8 +10,6 @@ import Layouts from 'vite-plugin-vue-layouts'
 export default defineConfig({
   // config packages https://github.com/vitejs/vite/issues/306
 
-  // TODO https://github.com/vitejs/vite/issues/306
-  // root: path.resolve(__dirname, '.normo'),
   alias: {
     '@/': `${path.resolve(__dirname, '')}/`
   },
