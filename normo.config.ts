@@ -23,11 +23,14 @@ export default defineConfig({
     }),
     // https://github.com/hannoeru/vite-plugin-pages
     Pages({
-      pagesDir: 'pages'
+      pagesDir: 'pages',
+      extensions: ['vue', 'js', 'md'],
+      replaceSquareBrackets: true
     }),
     // https://github.com/antfu/vite-plugin-components
     ViteComponents({
-      dirs: ['components']
+      dirs: ['components'],
+      deep: false
     })
   ],
   build: {
