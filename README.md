@@ -62,7 +62,7 @@ Imitate the directory structure of nuxt.js base vite2、vue3
 
 ### Github Template
 
-[Create a repo from this template on Github](https://github.com/kn0wn/vitesse-lite/generate).
+[Create a repo from this template on Github](https://github.com/fulus06/normo.js/generate).
 
 ### Clone to local
 
