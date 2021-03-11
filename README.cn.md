@@ -24,7 +24,7 @@
 
 #### 软件架构
 *  [Vue3](https://github.com/vuejs/vue-next), [Vite2](https://github.com/vitejs/vite), [ESBuild](https://github.com/evanw/esbuild)
-* [基于文件系统的路由](https://github.com/vamplate/vite-plugin-voie)
+* [基于文件系统的路由](https://github.com/hannoeru/vite-plugin-pages)
 * [按需自动导入组件](https://github.com/antfu/vite-plugin-components)
 * TypeScript
 * [standardjs](https://github.com/standard/standard) - 代码规范
