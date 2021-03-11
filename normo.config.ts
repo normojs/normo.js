@@ -9,9 +9,11 @@ import Layouts from 'vite-plugin-vue-layouts'
 
 export default defineConfig({
   // config packages https://github.com/vitejs/vite/issues/306
-
-  alias: {
-    '@/': `${path.resolve(__dirname, '')}/`
+  resolve: {
+    alias: {
+      '@/': `${path.resolve(__dirname, '')}/`,
+      vue: 'vue/dist/vue.esm-bundler.js' // 定义vue的别名，如果使用其他的插件，可能会用到别名
+    }
   },
   publicDir: 'static',
   plugins: [
@@ -32,15 +34,15 @@ export default defineConfig({
       dirs: ['components'],
       deep: false
     })
-  ],
-  build: {
-    rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, '.normo/index.html')
-        // nested: resolve(__dirname, 'nested/index.html')
-      }
-    }
-  }
+  ]
+  // build: {
+  //   rollupOptions: {
+  //     input: {
+  //       main: path.resolve(__dirname, '.normo/index.html')
+  //       // nested: resolve(__dirname, 'nested/index.html')
+  //     }
+  //   }
+  // }
 })
 
 // export default config

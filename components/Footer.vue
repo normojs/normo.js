@@ -3,7 +3,7 @@
     <div class="icon-btn mx-2" @click="isDark = !isDark">
       DM
     </div>
-    你好啊！！
+    footer
   </div>
 </template>
 
