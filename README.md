@@ -1,26 +1,39 @@
 # normojs
 
+[中文](./README.cn.md)
+
 #### Fork https://github.com/kn0wn/vitesse-lite 
 
 Imitate the directory structure of nuxt.js base vite2、vue3
 
 
 
-TODO 
+## structure
+
+```json
+|- project
+	|- conponents // 
+	|- layouts // 
+	|- pages // 
+	|- static // 
+	|- index.html // program entry
+	|- normo.config.js // vite.config.js @see package.json#script:normo
+	|- package.json // 
+```
+
+
+
+
 
 <br>
 
 ## Features
 
-- ⚡️ [Vue3](https://github.com/vuejs/vue-next), [Vite](https://github.com/vitejs/vite), [ESBuild](https://github.com/evanw/esbuild) - born with fastness
-
+- ⚡️ [Vue3](https://github.com/vuejs/vue-next), [Vite2](https://github.com/vitejs/vite), [ESBuild](https://github.com/evanw/esbuild) - born with fastness
 - 🗂 [File based routing](./src/pages)
-
 - 📲 [Components auto importing](./src/components)
-
 - 🦾 TypeScript, of course
-
-- ☁️ Deploy on Netlify, zero config
+- [standardjs](https://github.com/standard/standard) - 代码规范
 
 <br>
 
@@ -29,9 +42,8 @@ TODO
 ### Plugins
 
 - [Vue Router](https://github.com/vuejs/vue-router)
-  - [vite-plugin-voie](https://github.com/vamplate/vite-plugin-voie) - file system based routing
+  - [vite-plugin-page](https://github.com/hannoeru/vite-plugin-pages) - file system based routing
 - [vite-plugin-components](https://github.com/antfu/vite-plugin-components) - components auto import
-- [VueUse](https://github.com/antfu/vueuse) - collection of useful composition APIs
 
 ### Coding Style
 
@@ -41,7 +53,6 @@ TODO
 
 - [TypeScript](https://www.typescriptlang.org/)
   - [Vue TypeScript Plugin](https://github.com/znck/vue-developer-experience/tree/master/packages/typescript-plugin-vue) - better type support for Vue
-- [Netlify](https://www.netlify.com/) - deploy
 - [VS Code Extensions](./.vscode/extensions.json)
   - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
   - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
@@ -56,14 +67,21 @@ TODO
 ### Clone to local
 
 ```shell
+# clone
 git clone https://github.com/fulus06/normojs.git
+
+# or 国内下载代码
+git clone https://gitee.com/source-code-online/normojs.git
 
 cd ./normojs
 
 # install node_modules
-yarn
+yarn i
 
+# run
 yarn run dev
+# or run
+yarn run normo
 ```
 
 
@@ -98,11 +116,3 @@ npm run build
 ```
 
 And you will see the generated file in `dist` that is ready to be served.
-
-### Deploy on Netlify
-
-Go to [Netlify](https://app.netlify.com/start) and select you clone, `OK` along the way, and your App will be live in a minute.
-
-## Why
-
-I have removed certain items from the original Vitesse as I found I didn't need as much and was removing it whenever I created a new project.

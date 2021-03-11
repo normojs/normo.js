@@ -5,8 +5,25 @@
 
 
 
+## 目录结构
+
+```json
+|- project
+	|- conponents // 组件，自动导入
+	|- layouts // 布局，类似nuxtjs的布局，但使用方式不同
+	|- pages // 页面
+	|- static // 静态文件
+	|- index.html // 程序入口
+	|- normo.config.js // 同vite.config.js 可在package.json#script:normo修改
+	|- package.json // 
+```
+
+
+
+
+
 #### 软件架构
-*  [Vue3](https://github.com/vuejs/vue-next), [Vite](https://github.com/vitejs/vite), [ESBuild](https://github.com/evanw/esbuild)
+*  [Vue3](https://github.com/vuejs/vue-next), [Vite2](https://github.com/vitejs/vite), [ESBuild](https://github.com/evanw/esbuild)
 * [基于文件系统的路由](https://github.com/vamplate/vite-plugin-voie)
 * [按需自动导入组件](https://github.com/antfu/vite-plugin-components)
 * TypeScript
@@ -21,7 +38,10 @@ git clone https://gitee.com/source-code-online/normojs.git
 cd normojs
 
 # 安装依赖包
-yarn
+yarn i
+
+# 运行
+yarn run dev
 ```
 
 
