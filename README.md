@@ -1,3 +1,5 @@
+## Do not use it in production
+
 # normojs
 
 [中文](./README.cn.md)
@@ -10,7 +12,7 @@ Imitate the directory structure of nuxt.js base vite2、vue3
 
 ## structure
 
-```json
+```js
 |- project
 	|- conponents // 
 	|- layouts // 
