@@ -1,9 +1,6 @@
 {
   "name": "normojs",
   "version": "0.0.0",
-  "bin": {
-    "normo": "script/normo.js"
-  },
   "scripts": {
     "dev": "npm run normo",
     "dev:open": "vite --port 3333 --open",
