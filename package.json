@@ -1,17 +1,20 @@
 {
   "name": "normojs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "bin": {
-    "normo": "script/normo.js"
+    "normo": "./scripts/normo.mjs"
   },
+  "type": "module",
   "scripts": {
     "dev": "npm run normo",
     "dev:open": "vite --port 3333 --open",
-    "build": "cross-env NODE_ENV=production vite build",
+    "build:normo": "cross-env NODE_ENV=production vite build",
     "ls-lint": "ls-lint",
     "lint": "eslint --ext .js,.ts,.vue src/",
     "lint:fix": "eslint --fix --ext .js,.ts,.vue src/",
-    "normo": "vite --port 3333 --config normo.config.ts"
+    "normo": "vite --port 3333 --config normo.config.ts",
+    "cli:build": "tsc",
+    "cli:dev": "tsc --watch"
   },
   "lint-staged": {
     "nopackages/**/{src,__tests__,config}/**/**.{js,vue,ts,tsx}": [
@@ -22,8 +25,8 @@
     "@vueuse/core": "^4.0.8",
     "@vueuse/head": "^0.2.3",
     "nprogress": "^0.2.0",
-    "vue-demi": "^0.6.0",
     "vue": "^3.0.6",
+    "vue-demi": "^0.6.0",
     "vue-router": "^4.0.4"
   },
   "devDependencies": {
