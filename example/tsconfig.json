@@ -1,11 +1,7 @@
 {
-  "ts-node": {
-    "transpileOnly": true
-  },
   "compilerOptions": {
-    "typeRoots": ["./types"],
     "baseUrl": ".",
-    "module": "CommonJS",
+    "module": "ESNext",
     "target": "ES2018",
     "lib": ["DOM", "ESNext"],
     "strict": true,
@@ -17,7 +13,7 @@
     "noUnusedLocals": true,
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["vite/client", "vite-plugin-pages/client"],
+    "types": ["@types/node","vite/client", "vite-plugin-pages/client"],
     "paths": {
       "@/*": ["*"]
     }

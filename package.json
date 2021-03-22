@@ -1,8 +1,8 @@
 {
   "name": "normojs",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "bin": {
-    "normo": "./scripts/normo.mjs"
+    "normo": "./scripts/start.mjs"
   },
   "type": "module",
   "scripts": {
@@ -39,9 +39,9 @@
     "eslint-config-standard-vue-ts": "^1.0.8",
     "lint-staged": "^10.5.3",
     "typescript": "^4.0.2",
-    "vite": "^2.1.0",
+    "vite": "^2.1.2",
     "vite-plugin-components": "^0.8.3",
-    "vite-plugin-pages": "^0.7.1",
+    "vite-plugin-pages": "^0.7.2",
     "vite-plugin-vue-layouts": "^0.2.2",
     "vite-ssg": "^0.8.12",
     "yorkie": "^2.0.0"
