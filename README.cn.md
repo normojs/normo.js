@@ -2,8 +2,24 @@
 
 # normojs
 
-#### 介绍 - 开发中... ...
+#### 介绍 - 开发中，请不要在开发环境中使用... ...
 一个类似nuxtjs的框架，基于vue3、vite2
+
+
+
+## Template
+
+branch: [template](./tree/template )
+
+
+
+## Framework
+
+
+
+## Framework
+
+branch: [master](./tree/master)
 
 
 
@@ -11,13 +27,13 @@
 
 ```js
 |- project
-	|- conponents // 组件，自动导入
-	|- layouts // 布局，类似nuxtjs的布局，但使用方式不同
-	|- pages // 页面
-	|- static // 静态文件
-	|- index.html // 程序入口
-	|- normo.config.js // 同vite.config.js 可在package.json#script:normo修改
-	|- package.json // 
+    |- conponents // 组件，自动导入
+    |- layouts // 布局，类似nuxtjs的布局，但使用方式不同
+    |- pages // 页面
+    |- static // 静态文件
+    |- index.html // 程序入口
+    |- normo.config.ts // （自己的项目可以为纯js，但当前文件必须是这个名字和后缀，当前文件的转换由框架esbuild处理）同vite.config.js 可在package.json#script:normo修改
+    |- package.json // 
 ```
 
 
@@ -53,6 +69,10 @@ yarn run dev
 1.  xxxx
 2.  xxxx
 3.  xxxx
+
+
+
+doc: https://juejin.cn/post/6844903702453551111
 
 #### 参与贡献
 

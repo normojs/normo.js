@@ -1,20 +1,20 @@
 {
-  "name": "normojs",
-  "version": "0.1.0",
+  "name": "normo",
+  "version": "0.1.1",
   "bin": {
     "normo": "./scripts/start.mjs"
   },
   "type": "module",
+  "description": "一个类似于nuxtjs的vue框架，基于：vite2、vue3",
+  "author": {
+    "name": "傅长路",
+    "email": "fulu0709@foxmail.com",
+    "url": "https://gitee.com/source-code-online/normojs"
+  },
+  "license":"MIT",
+  "keywords": ["normojs","nuxtjs","vue3","vite2"],
   "scripts": {
-    "dev": "npm run normo",
-    "dev:open": "vite --port 3333 --open",
-    "build:normo": "cross-env NODE_ENV=production vite build",
-    "ls-lint": "ls-lint",
-    "lint": "eslint --ext .js,.ts,.vue src/",
-    "lint:fix": "eslint --fix --ext .js,.ts,.vue src/",
-    "normo": "vite --port 3333 --config normo.config.ts",
-    "cli:build": "tsc",
-    "cli:dev": "tsc --watch"
+    "dev": "npm run normo"
   },
   "lint-staged": {
     "nopackages/**/{src,__tests__,config}/**/**.{js,vue,ts,tsx}": [

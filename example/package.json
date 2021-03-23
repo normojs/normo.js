@@ -23,7 +23,7 @@
     ]
   },
   "dependencies": {
-    "normojs": "file:../normojs"
+    "normo": "^0.1.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.35",

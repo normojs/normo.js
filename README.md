@@ -10,17 +10,31 @@ Imitate the directory structure of nuxt.js base vite2、vue3
 
 
 
+## Template
+
+branch: [template](./tree/template )
+
+
+
+## Framework
+
+branch: [master](./tree/master)
+
+
+
+
+
 ## structure
 
 ```js
 |- project
-	|- conponents // 
-	|- layouts // 
-	|- pages // 
-	|- static // 
-	|- index.html // program entry
-	|- normo.config.js // vite.config.js @see package.json#script:normo
-	|- package.json // 
+    |- conponents // 组件，自动导入
+    |- layouts // 布局，类似nuxtjs的布局，但使用方式不同
+    |- pages // 页面
+    |- static // 静态文件
+    |- index.html // 程序入口
+    |- normo.config.ts // （自己的项目可以为纯js，但当前文件必须是这个名字和后缀，当前文件的编译由框架esbuild处理）同vite.config.js 可在package.json#script:normo修改
+    |- package.json // 
 ```
 
 
