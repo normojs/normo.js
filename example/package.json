@@ -1,0 +1,38 @@
+{
+  "name": "normojs-demo",
+  "version": "0.0.1",
+  "description": "normojs",
+  "main": "index.js",
+  "keywords": [
+    "normojs"
+  ],
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "dev": "normo",
+    "dev:open": "normo --port 3333 --open",
+    "build": "cross-env NODE_ENV=production vite build",
+    "ls-lint": "ls-lint",
+    "lint": "eslint --ext .js,.ts,.vue src/",
+    "lint:fix": "eslint --fix --ext .js,.ts,.vue src/",
+    "normo": "normo --port 3333 --config normo.config.ts"
+  },
+  "lint-staged": {
+    "nopackages/**/{src,__tests__,config}/**/**.{js,vue,ts,tsx}": [
+      "eslint --ext .js,.vue,.ts --fix"
+    ]
+  },
+  "dependencies": {
+    "normo": "^0.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.35",
+    "@types/nprogress": "^0.2.0",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "cross-env": "^7.0.2",
+    "eslint-config-standard-vue-ts": "^1.0.8",
+    "lint-staged": "^10.5.3",
+    "typescript": "^4.0.2",
+    "yorkie": "^2.0.0"
+  }
+}

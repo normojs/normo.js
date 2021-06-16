@@ -1,14 +1,20 @@
 {
-  "name": "normojs",
-  "version": "0.0.0",
+  "name": "normo",
+  "version": "0.1.2",
+  "bin": {
+    "normo": "./scripts/start.mjs"
+  },
+  "type": "module",
+  "description": "一个类似于nuxtjs的vue框架，基于：vite2、vue3",
+  "author": {
+    "name": "傅长路",
+    "email": "fulu0709@foxmail.com",
+    "url": "https://gitee.com/source-code-online/normojs"
+  },
+  "license":"MIT",
+  "keywords": ["normojs","nuxtjs","vue3","vite2"],
   "scripts": {
-    "dev": "npm run normo",
-    "dev:open": "vite --port 3333 --open",
-    "build": "cross-env NODE_ENV=production vite build",
-    "ls-lint": "ls-lint",
-    "lint": "eslint --ext .js,.ts,.vue src/",
-    "lint:fix": "eslint --fix --ext .js,.ts,.vue src/",
-    "normo": "vite --port 3333 --config normo.config.ts"
+    "dev": "npm run normo"
   },
   "lint-staged": {
     "nopackages/**/{src,__tests__,config}/**/**.{js,vue,ts,tsx}": [
@@ -19,24 +25,24 @@
     "@vueuse/core": "^4.0.8",
     "@vueuse/head": "^0.2.3",
     "nprogress": "^0.2.0",
-    "vue-demi": "^0.6.0",
     "vue": "^3.0.6",
-    "vue-router": "^4.0.4"
+    "vue-demi": "^0.6.0",
+    "vue-router": "^4.0.4",
+    "@vue/compler-sfc": "^3.0.5",
+    "@vitejs/plugin-vue": "^1.1.2",
+    "vite": "^2.1.2",
+    "vite-plugin-components": "^0.8.3",
+    "vite-plugin-pages": "^0.7.2",
+    "vite-plugin-vue-layouts": "^0.2.2"
   },
   "devDependencies": {
     "@types/node": "^14.14.22",
     "@types/nprogress": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^4.14.1",
-    "@vitejs/plugin-vue": "^1.1.2",
-    "@vue/compiler-sfc": "^3.0.5",
     "cross-env": "^7.0.2",
     "eslint-config-standard-vue-ts": "^1.0.8",
     "lint-staged": "^10.5.3",
     "typescript": "^4.0.2",
-    "vite": "^2.1.0",
-    "vite-plugin-components": "^0.8.3",
-    "vite-plugin-pages": "^0.7.1",
-    "vite-plugin-vue-layouts": "^0.2.2",
     "vite-ssg": "^0.8.12",
     "yorkie": "^2.0.0"
   }
