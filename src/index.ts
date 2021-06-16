@@ -1,4 +1,3 @@
-console.log('xxx')
 import path from 'path'
 import { createServer } from 'vite'
 import fs from 'fs'
@@ -7,11 +6,13 @@ import LayoutsPlugin from 'vite-plugin-vue-layouts'
 import PagesPlugin from 'vite-plugin-pages'
 import ViteComponentsPlugin from 'vite-plugin-components'
 
+const _eval = require('eval')
+
+
 const Layouts = LayoutsPlugin
 const Pages = PagesPlugin
 const ViteComponents = ViteComponentsPlugin
 import {buildConfig} from './build'
-
 // 开发者的项目根路径
 const projectRoot = process.cwd()
 const fileName = 'normo.config.ts'
@@ -20,12 +21,14 @@ const resolvePath = path.join(projectRoot, '/'+fileName)
 
 
 // 1、读取配置文件 默认 normo.config.ts
-
 ;(async () => {
   const configJsCode = await buildConfig(resolvePath, false)
   fs.writeFileSync(resolvePath + '.js', configJsCode)
   let viteConfig = (await eval(`import('file://' + resolvePath + '.js')`))
-          .default
+  .default
+
+  // console.log('xxxxxxxxx;:', _eval(configJsCode, true))
+  console.log('xxx" ', viteConfig)
   viteConfig = viteConfig.default ? viteConfig.default : viteConfig
 
   // 删除文件
@@ -43,6 +46,7 @@ const resolvePath = path.join(projectRoot, '/'+fileName)
       }
     },
     publicDir: viteConfig.publicDir ? viteConfig.publicDir : 'static',
+    // TODO: 布局、组件、页面、store、中间件、插件
     plugins: [
       // 支持vue
       Vue(),

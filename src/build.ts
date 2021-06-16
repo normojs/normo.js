@@ -1,13 +1,14 @@
 //  编译，选择编译哪一个项目
 import { build } from 'esbuild'
+// TODO: build
+// import { build } from 'vite'
 import fs from 'fs'
 import path from 'path'
-
 export async function buildConfig(filePath:string, isTs=true) {
   const result = await build({
     entryPoints: [filePath],
     outfile: 'out.js',
-    write: false,
+    write: false, 
     platform: 'node',
     bundle: true,
     format: isTs ? 'esm' : 'cjs',
