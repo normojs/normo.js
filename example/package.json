@@ -9,13 +9,13 @@
   "author": "",
   "license": "MIT",
   "scripts": {
-    "dev": "normo",
-    "dev:open": "normo --port 3333 --open",
+    "dev": "normojs",
+    "dev:open": "normojs --port 3333 --open",
     "build": "cross-env NODE_ENV=production vite build",
     "ls-lint": "ls-lint",
     "lint": "eslint --ext .js,.ts,.vue src/",
     "lint:fix": "eslint --fix --ext .js,.ts,.vue src/",
-    "normo": "normo --port 3333 --config normo.config.ts"
+    "normojs": "normojs --port 3333 --config normo.config.ts"
   },
   "lint-staged": {
     "nopackages/**/{src,__tests__,config}/**/**.{js,vue,ts,tsx}": [

@@ -2,19 +2,28 @@
   "name": "normo",
   "version": "0.1.2",
   "bin": {
-    "normo": "./scripts/start.mjs"
+    "normojs": "./scripts/normojs.js"
   },
-  "type": "module",
+  "main": "dist/index.js",
+  "type": "commonjs",
   "description": "一个类似于nuxtjs的vue框架，基于：vite2、vue3",
   "author": {
     "name": "傅长路",
     "email": "fulu0709@foxmail.com",
     "url": "https://gitee.com/source-code-online/normojs"
   },
-  "license":"MIT",
-  "keywords": ["normojs","nuxtjs","vue3","vite2"],
+  "license": "MIT",
+  "keywords": [
+    "normojs",
+    "nuxtjs",
+    "vue3",
+    "vite2"
+  ],
   "scripts": {
-    "dev": "npm run normo"
+    "dev": "npm run build -- --watch --ignore-watch examples",
+    "build": "tsup src/index.ts --dts --format cjs,esm",
+    "start": "nodemon --watch 'src/**/*.ts' --exec ts-node src/index.ts",
+    "example:dev": "npm -C  example run dev"
   },
   "lint-staged": {
     "nopackages/**/{src,__tests__,config}/**/**.{js,vue,ts,tsx}": [
@@ -22,26 +31,30 @@
     ]
   },
   "dependencies": {
+    "@vitejs/plugin-vue": "^1.1.2",
+    "@vue/compiler-sfc": "^3.0.5",
     "@vueuse/core": "^4.0.8",
     "@vueuse/head": "^0.2.3",
     "nprogress": "^0.2.0",
-    "vue": "^3.0.6",
-    "vue-demi": "^0.6.0",
-    "vue-router": "^4.0.4",
-    "@vue/compler-sfc": "^3.0.5",
-    "@vitejs/plugin-vue": "^1.1.2",
     "vite": "^2.1.2",
+    "esbuild": "^0.12.9",
     "vite-plugin-components": "^0.8.3",
     "vite-plugin-pages": "^0.7.2",
-    "vite-plugin-vue-layouts": "^0.2.2"
+    "vite-plugin-vue-layouts": "^0.2.2",
+    "vue": "^3.0.6",
+    "vue-demi": "^0.6.0",
+    "vue-router": "^4.0.4"
   },
   "devDependencies": {
-    "@types/node": "^14.14.22",
+    "@types/node": "^15.12.2",
     "@types/nprogress": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^4.14.1",
     "cross-env": "^7.0.2",
     "eslint-config-standard-vue-ts": "^1.0.8",
     "lint-staged": "^10.5.3",
+    "nodemon": "^2.0.7",
+    "ts-node": "^10.0.0",
+    "tsup": "^4.11.2",
     "typescript": "^4.0.2",
     "vite-ssg": "^0.8.12",
     "yorkie": "^2.0.0"

@@ -92,12 +92,11 @@ git clone https://gitee.com/source-code-online/normojs.git
 cd ./normojs
 
 # install node_modules
-yarn i
+yarn install
 
+npm link --force
 # run
 yarn run dev
-# or run
-yarn run normo
 ```
 
 

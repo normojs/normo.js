@@ -1,26 +1,19 @@
 {
-  "ts-node": {
-    "transpileOnly": true
-  },
   "compilerOptions": {
-    "typeRoots": ["./types"],
-    "baseUrl": ".",
-    "module": "CommonJS",
-    "target": "ES2018",
-    "lib": ["DOM", "ESNext"],
-    "strict": true,
+    "module": "ESNext",
+    "target": "es2017",
+    "lib": ["ESNext", "DOM"],
     "esModuleInterop": true,
-    "incremental": true,
-    "skipLibCheck": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "noUnusedLocals": true,
+    "strict": true,
     "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true,
-    "types": ["vite/client", "vite-plugin-pages/client"],
-    "paths": {
-      "@/*": ["*"]
-    }
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "noUnusedParameters": true
   },
-  "exclude": ["dist", "node_modules"]
+  "exclude": [
+    "**/dist",
+    "**/node_modules",
+    "**/test"
+  ]
 }

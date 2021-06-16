@@ -1,23 +1,16 @@
-#!/usr/bin/env node
-
-import _ from './global.mjs'
+console.log('xxx')
 import path from 'path'
-
+import { createServer } from 'vite'
+import fs from 'fs'
 import Vue from '@vitejs/plugin-vue'
 import LayoutsPlugin from 'vite-plugin-vue-layouts'
 import PagesPlugin from 'vite-plugin-pages'
 import ViteComponentsPlugin from 'vite-plugin-components'
 
-const Layouts = LayoutsPlugin.default?LayoutsPlugin.default:LayoutsPlugin
-const Pages = PagesPlugin.default?PagesPlugin.default:PagesPlugin
-const ViteComponents = ViteComponentsPlugin.default?ViteComponentsPlugin.default:ViteComponentsPlugin
-
-import { createServer } from 'vite'
-import fs from 'fs'
-// 源映射
-// 配置文件，参考nuxt.config.js
-// import viteConfig from '../normo.config.js'
-import {buildConfig} from './build.mjs'
+const Layouts = LayoutsPlugin
+const Pages = PagesPlugin
+const ViteComponents = ViteComponentsPlugin
+import {buildConfig} from './build'
 
 // 开发者的项目根路径
 const projectRoot = process.cwd()
@@ -25,18 +18,18 @@ const fileName = 'normo.config.ts'
 const relativePath = path.relative(projectRoot, '/'+fileName)
 const resolvePath = path.join(projectRoot, '/'+fileName)
 
-// console.log('框架默认配置: ', __dirname, projectRoot, relativePath)
 
 // 1、读取配置文件 默认 normo.config.ts
 
 ;(async () => {
-  const configJsCode = await buildConfig(resolvePath, true)
-  fs.writeFileSync(resolvePath + '.mjs', configJsCode)
-  let viteConfig = (await eval(`import('file://' + resolvePath + '.mjs')`))
+  const configJsCode = await buildConfig(resolvePath, false)
+  fs.writeFileSync(resolvePath + '.js', configJsCode)
+  let viteConfig = (await eval(`import('file://' + resolvePath + '.js')`))
           .default
   viteConfig = viteConfig.default ? viteConfig.default : viteConfig
+
   // 删除文件
-  fs.unlinkSync(resolvePath + '.mjs')
+  fs.unlinkSync(resolvePath + '.js')
 
   const server = await createServer({
     // any valid user config options, plus `mode` and `configFile`
@@ -75,5 +68,3 @@ const resolvePath = path.join(projectRoot, '/'+fileName)
   })
   await server.listen()
 })()
-
-
