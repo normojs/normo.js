@@ -37,16 +37,16 @@
     "@vueuse/core": "^4.0.8",
     "@vueuse/head": "^0.2.3",
     "esbuild": "^0.12.9",
-    "eval": "^0.1.6",
     "nprogress": "^0.2.0",
-    "require-like": "^0.1.2",
     "vite": "^2.1.2",
     "vite-plugin-components": "^0.8.3",
     "vite-plugin-pages": "^0.7.2",
+    "vite-plugin-store": "^0.0.2",
     "vite-plugin-vue-layouts": "^0.2.2",
     "vue": "^3.0.6",
     "vue-demi": "^0.6.0",
-    "vue-router": "^4.0.4"
+    "vue-router": "^4.0.4",
+    "vuex": "^4.0.4"
   },
   "devDependencies": {
     "@types/node": "^15.12.2",

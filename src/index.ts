@@ -1,19 +1,14 @@
 import path from 'path'
 import { createServer } from 'vite'
-import fs from 'fs'
 import Vue from '@vitejs/plugin-vue'
-import LayoutsPlugin from 'vite-plugin-vue-layouts'
-import PagesPlugin from 'vite-plugin-pages'
-import ViteComponentsPlugin from 'vite-plugin-components'
+import Layouts from 'vite-plugin-vue-layouts'
+import Pages from 'vite-plugin-pages'
+import ViteComponents from 'vite-plugin-components'
+import Store from 'vite-plugin-store'
 
-const _eval2 = require('eval')
 
 import {_eval} from './eval'
 
-
-const Layouts = LayoutsPlugin
-const Pages = PagesPlugin
-const ViteComponents = ViteComponentsPlugin
 import {buildConfig} from './build'
 // 开发者的项目根路径
 const projectRoot = process.cwd()
@@ -24,18 +19,15 @@ const relativePath = path.relative(projectRoot, '/'+fileName).replace(/\\/g, '/'
 const resolvePath = path.join(projectRoot, '/'+fileName).replace(/\\/g, '/')
 
 // TODO: xxx
-// @ts-ignore
-import vm from "@microflows/nodevm";
+
 let configJsCode:string = 'module.exports = {}'
 // 1、读取配置文件 默认 normo.config.ts
-const fetcher = ()=>{
-  return Promise.resolve(configJsCode)
-}
+
 
 ;(async () => {
   configJsCode = await buildConfig(resolvePath, false)
-  const viteConfig = await vm('', fetcher)
-  console.log('viteConfig ', viteConfig)
+  let viteConfig =  await _eval(configJsCode)
+  viteConfig = viteConfig.default?viteConfig.default:viteConfig
   // TODO: 默认配置
 
   const server = await createServer({
@@ -68,6 +60,11 @@ const fetcher = ()=>{
       ViteComponents({
         dirs: [viteConfig.componentsDir ? viteConfig.componentsDir : 'components'],
         deep: false
+      }),
+      // 状态：
+      Store({
+        storeDir:  viteConfig.storeDir ? viteConfig.storeDir : 'pages',
+        extensions: ['ts', 'js']
       })
     ],
     server: {

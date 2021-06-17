@@ -9,7 +9,8 @@ export default {
   publicDir: 'static',
   layoutsDir: 'layouts',
   pagesDir: 'pages',
-  componentsDir: 'components'
+  componentsDir: 'components',
+  storeDir: 'store'
 // build: {
 //   //   rollupOptions: {
 //   //     input: {

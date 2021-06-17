@@ -335,7 +335,7 @@
     "@vue/compiler-dom" "3.1.1"
     "@vue/shared" "3.1.1"
 
-"@vue/devtools-api@^6.0.0-beta.14":
+"@vue/devtools-api@^6.0.0-beta.11", "@vue/devtools-api@^6.0.0-beta.14":
   version "6.0.0-beta.14"
   resolved "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.0.0-beta.14.tgz#6ed2d6f8d66a9256c9ad04bfff08309ba87b9723"
   integrity sha512-44fPrrN1cqcs6bFkT0C+yxTM6PZXLbR+ESh1U1j8UD22yO04gXvxH62HApMjLbS3WqJO/iCNC+CYT+evPQh2EQ==
@@ -707,7 +707,7 @@ chalk@^3.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-chalk@^4.0.0, chalk@^4.1.0:
+chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.1:
   version "4.1.1"
   resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.1.tgz#c80b3fab28bf6371e6863325eee67e618b77e6ad"
   integrity sha512-diHzdDKxcU+bAsUboHLPEDQiw0qEe0qd7SYUn3HgcFlWgbDcfLGswOHYeGrHKzG9z6UYf01d9VFMfZxPM1xZSg==
@@ -1057,7 +1057,7 @@ dir-glob@^3.0.1:
   dependencies:
     path-type "^4.0.0"
 
-directory-tree@^2.2.7:
+directory-tree@^2.2.7, directory-tree@^2.2.9:
   version "2.2.9"
   resolved "https://registry.npmjs.org/directory-tree/-/directory-tree-2.2.9.tgz#702c193f8b19f1076b585bcf8a2db3b49b11a11c"
   integrity sha512-BOHxPNvP+XWijPkzoSBvr164IiNxRzvyAiWelbJsU/wG5OYXByer0+Aqo74G1qU+nRKC4yU/czmkmunkWdPPvQ==
@@ -1176,7 +1176,7 @@ es-to-primitive@^1.2.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
-esbuild@^0.11.12:
+esbuild@^0.11.12, esbuild@^0.11.20:
   version "0.11.23"
   resolved "https://registry.npmjs.org/esbuild/-/esbuild-0.11.23.tgz#c42534f632e165120671d64db67883634333b4b8"
   integrity sha512-iaiZZ9vUF5wJV8ob1tl+5aJTrwDczlvGP0JoMmnpC2B0ppiMCu8n8gmy5ZTGl5bcG081XBVn+U+jP+mPFm5T5Q==
@@ -1459,13 +1459,6 @@ esutils@^2.0.2:
   version "2.0.3"
   resolved "https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz#74d2eb4de0b8da1293711910d50775b9b710ef64"
   integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
-
-eval@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.npmjs.org/eval/-/eval-0.1.6.tgz#9620d7d8c85515e97e6b47c5814f46ae381cb3cc"
-  integrity sha512-o0XUw+5OGkXw4pJZzQoXUk+H87DHuC+7ZE//oSrRGtatTmr12oTnLfg6QOq9DyTt0c/p4TwzgmkKrBzWTSizyQ==
-  dependencies:
-    require-like ">= 0.1.1"
 
 execa@^0.8.0:
   version "0.8.0"
@@ -3118,11 +3111,6 @@ require-from-string@^2.0.2:
   resolved "https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz#89a7fdd938261267318eafe14f9c32e598c36909"
   integrity sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==
 
-"require-like@>= 0.1.1", require-like@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.npmjs.org/require-like/-/require-like-0.1.2.tgz#ad6f30c13becd797010c468afa775c0c0a6b47fa"
-  integrity sha1-rW8wwTvs15cBDEaK+ndcDAprR/o=
-
 resolve-from@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/resolve-from/-/resolve-from-4.0.0.tgz#4abcd852ad32dd7baabfe9b40e00a36db5f392e6"
@@ -3793,6 +3781,21 @@ vite-plugin-pages@^0.7.2:
     vue-router "^4.0.5"
     yaml "^2.0.0-4"
 
+vite-plugin-store@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.npmjs.org/vite-plugin-store/-/vite-plugin-store-0.0.2.tgz#69e508f7d8b2b4d3a385469c6b076a05348952e6"
+  integrity sha512-66V2WC5mbVDUh+tvKMiiLQv6kgy/VytyYO3hLCLw9HQVz10SkCC4CR7zzkvjxpRWzpOSgl+HrdO3F7NHRICScw==
+  dependencies:
+    chalk "^4.1.1"
+    debug "^4.3.2"
+    deep-equal "^2.0.5"
+    directory-tree "^2.2.9"
+    esbuild "^0.11.20"
+    fast-glob "^3.2.5"
+    glob-to-regexp "^0.4.1"
+    json5 "^2.2.0"
+    yaml "^2.0.0-5"
+
 vite-plugin-vue-layouts@^0.2.2:
   version "0.2.2"
   resolved "https://registry.npmjs.org/vite-plugin-vue-layouts/-/vite-plugin-vue-layouts-0.2.2.tgz#b630ff2a557c5995a5a86507f5dc304a99c6b1a8"
@@ -3865,6 +3868,13 @@ vue@^3.0.5, vue@^3.0.6:
     "@vue/compiler-dom" "3.1.1"
     "@vue/runtime-dom" "3.1.1"
     "@vue/shared" "3.1.1"
+
+vuex@^4.0.4:
+  version "4.0.1"
+  resolved "https://registry.npmjs.org/vuex/-/vuex-4.0.1.tgz#e83c541d6f31173969efabb2c5d1c465b682887e"
+  integrity sha512-MddakQTAnImDkK1YhEESowKSU5KcjqHH3L1ScPx1lj6NzDDX0FuRBZqJoME5O7/nvj9puudDf6xnWU2w/cqI7g==
+  dependencies:
+    "@vue/devtools-api" "^6.0.0-beta.11"
 
 w3c-hr-time@^1.0.2:
   version "1.0.2"
@@ -4049,7 +4059,7 @@ yaml@^1.10.0, yaml@^1.10.2:
   resolved "https://registry.npmjs.org/yaml/-/yaml-1.10.2.tgz#2301c5ffbf12b467de8da2333a459e29e7920e4b"
   integrity sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
 
-yaml@^2.0.0-4:
+yaml@^2.0.0-4, yaml@^2.0.0-5:
   version "2.0.0-6"
   resolved "https://registry.npmjs.org/yaml/-/yaml-2.0.0-6.tgz#3d858d656b9ef13a95c77d083b816e6a8d16caa0"
   integrity sha512-YPUm0Z0sei53zauT7HWkkxyIBJhb9Gnf5jv4w4ahw5/v3PjFGhZOt4paXH6g9hzcMJqmNxZwoGfF1JzE2jvSgg==
