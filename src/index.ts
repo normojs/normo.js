@@ -6,7 +6,9 @@ import LayoutsPlugin from 'vite-plugin-vue-layouts'
 import PagesPlugin from 'vite-plugin-pages'
 import ViteComponentsPlugin from 'vite-plugin-components'
 
-const _eval = require('eval')
+const _eval2 = require('eval')
+
+import {_eval} from './eval'
 
 
 const Layouts = LayoutsPlugin
@@ -16,23 +18,25 @@ import {buildConfig} from './build'
 // 开发者的项目根路径
 const projectRoot = process.cwd()
 const fileName = 'normo.config.ts'
-const relativePath = path.relative(projectRoot, '/'+fileName)
-const resolvePath = path.join(projectRoot, '/'+fileName)
+// 返回相对路径
+const relativePath = path.relative(projectRoot, '/'+fileName).replace(/\\/g, '/')
+// 返回绝对路径
+const resolvePath = path.join(projectRoot, '/'+fileName).replace(/\\/g, '/')
 
-
+// TODO: xxx
+// @ts-ignore
+import vm from "@microflows/nodevm";
+let configJsCode:string = 'module.exports = {}'
 // 1、读取配置文件 默认 normo.config.ts
+const fetcher = ()=>{
+  return Promise.resolve(configJsCode)
+}
+
 ;(async () => {
-  const configJsCode = await buildConfig(resolvePath, false)
-  fs.writeFileSync(resolvePath + '.js', configJsCode)
-  let viteConfig = (await eval(`import('file://' + resolvePath + '.js')`))
-  .default
-
-  // console.log('xxxxxxxxx;:', _eval(configJsCode, true))
-  console.log('xxx" ', viteConfig)
-  viteConfig = viteConfig.default ? viteConfig.default : viteConfig
-
-  // 删除文件
-  fs.unlinkSync(resolvePath + '.js')
+  configJsCode = await buildConfig(resolvePath, false)
+  const viteConfig = await vm('', fetcher)
+  console.log('viteConfig ', viteConfig)
+  // TODO: 默认配置
 
   const server = await createServer({
     // any valid user config options, plus `mode` and `configFile`

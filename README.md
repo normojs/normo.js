@@ -97,6 +97,9 @@ yarn install
 npm link --force
 # run
 yarn run dev
+
+# new ternimal
+yarn run example:dev
 ```
 
 

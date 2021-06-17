@@ -31,6 +31,7 @@
     ]
   },
   "dependencies": {
+    "@microflows/nodevm": "^3.5.3",
     "@vitejs/plugin-vue": "^1.1.2",
     "@vue/compiler-sfc": "^3.0.5",
     "@vueuse/core": "^4.0.8",
@@ -38,6 +39,7 @@
     "esbuild": "^0.12.9",
     "eval": "^0.1.6",
     "nprogress": "^0.2.0",
+    "require-like": "^0.1.2",
     "vite": "^2.1.2",
     "vite-plugin-components": "^0.8.3",
     "vite-plugin-pages": "^0.7.2",

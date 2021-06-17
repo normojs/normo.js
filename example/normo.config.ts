@@ -1,5 +1,6 @@
 import path from 'path'
 
+// TODO: 重新定义配置文件格式
 export default {
   alias: {
     '@/': `${path.resolve(__dirname, '')}/`,
