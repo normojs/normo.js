@@ -12,6 +12,8 @@
   </body>
   <script type="module">
     import { createApp, defineComponent } from 'vue'
+    // import App from './app.vue'
+    // const app = createApp(App)
     const app = createApp({
       template: `<router-view />`
     })
@@ -23,7 +25,7 @@
     import { createStore } from 'vuex'
     app.use(createStore(store))
 
-    // console.log('store.code: ', store)
+    console.log('store.code: ', store)
     const router = createRouter({
       history: createWebHistory(),
       routes

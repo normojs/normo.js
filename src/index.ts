@@ -27,7 +27,7 @@ let configJsCode:string = 'module.exports = {}'
 ;(async () => {
   configJsCode = await buildConfig(resolvePath, false)
   let viteConfig =  await _eval(configJsCode)
-  viteConfig = viteConfig.default?viteConfig.default:viteConfig
+  viteConfig = viteConfig.default ? viteConfig.default : viteConfig
   // TODO: 默认配置
 
   const server = await createServer({
@@ -37,7 +37,6 @@ let configJsCode:string = 'module.exports = {}'
     resolve: {
       alias: {
         '@/': `${path.resolve(projectRoot, '')}/`,
-        vue: 'vue/dist/vue.esm-bundler.js', // 定义vue的别名，如果使用其他的插件，可能会用到别名
         ...viteConfig.alias
       }
     },
