@@ -50,6 +50,7 @@ branch: [master](./tree/master)
 - 📲 [Components auto importing](./src/components)
 - 🦾 TypeScript, of course
 - [standardjs](https://github.com/standard/standard) - 代码规范
+- [vite-plugin-virtual](https://github.com/patak-js/vite-plugin-virtual)
 
 <br>
 
