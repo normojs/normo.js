@@ -7,6 +7,14 @@
 
 
 
+### lerna
+
+
+
+
+
+
+
 ## Template
 
 branch: [template](./tree/template )
@@ -58,8 +66,14 @@ cd normojs
 # 安装依赖包
 yarn i
 
-# 运行
+# 本地调试normojs
+npm link
+
+# 运行normojs
 yarn run dev
+
+# 运行demo
+yarn run example:dev
 ```
 
 

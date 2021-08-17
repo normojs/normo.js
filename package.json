@@ -47,7 +47,7 @@
     "vue": "^3.0.6",
     "vue-demi": "^0.6.0",
     "vue-router": "^4.0.4",
-    "vuex": "^4.0.4"
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@types/node": "^15.12.2",
