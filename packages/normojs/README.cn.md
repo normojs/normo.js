@@ -7,7 +7,26 @@
 
 
 
-### lerna
+## monorepo
+
+```js
+|- root
+	|- packages
+		|- nomorjs
+		|- @normojs-component // @normojs/component
+        |- @normojs-html		// @normojs/html
+        |- @normojs-layout	// @normojs/layout
+        |- @normojs-package // 主要的，整合各个内置模块
+        |- @normojs-page		// @normojs/page
+        |- @normojs-plugin // @normojs/plugin
+        |- @normojs-store // @normojs/store
+        index.ts
+        type.ts
+	|- pnpm-workspace.yaml
+	
+```
+
+
 
 
 
