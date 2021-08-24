@@ -1,0 +1,46 @@
+{
+  "name": "normojs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "normojs": "./scripts/normojs.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "dev": "npm run build -- --watch --ignore-watch example",
+    "build": "tsup src/index.ts --dts --format cjs,esm",
+    "start": "nodemon --watch 'src/**/*.ts' --exec ts-node src/index.ts",
+    "example:dev": "npm -C  example run dev"
+  },
+  "lint-staged": {
+    "nopackages/**/{src,__tests__,config}/**/**.{js,vue,ts,tsx}": [
+      "eslint --ext .js,.vue,.ts --fix"
+    ]
+  },
+  "dependencies": {
+    "@microflows/nodevm": "^3.5.3",
+    "@vitejs/plugin-vue": "^1.1.2",
+    "@vue/compiler-sfc": "^3.0.5",
+    "@vueuse/core": "^4.0.8",
+    "@vueuse/head": "^0.2.3",
+    "esbuild": "^0.12.9",
+    "fast-glob": "^3.2.7",
+    "nprogress": "^0.2.0",
+    "vite": "^2.1.2",
+    "vite-plugin-components": "^0.8.3",
+    "vite-plugin-pages": "^0.7.2",
+    "vite-plugin-store": "^0.0.2",
+    "vite-plugin-vue-layouts": "^0.2.2",
+    "vue": "^3.0.6",
+    "vue-demi": "^0.6.0",
+    "vue-router": "^4.0.4",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "nodemon": "^2.0.7",
+    "vite-ssg": "^0.8.12"
+  }
+}

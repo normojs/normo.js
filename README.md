@@ -5,41 +5,6 @@
 #### 介绍 - 开发中，请不要在开发环境中使用... ...
 一个类似nuxtjs的框架，基于vue3、vite2
 
-
-
-## monorepo
-
-```js
-|- root
-	|- packages
-		|- nomorjs
-		|- @normojs-component // @normojs/component
-        |- @normojs-html		// @normojs/html
-        |- @normojs-layout	// @normojs/layout
-        |- @normojs-package // 主要的，整合各个内置模块
-        |- @normojs-page		// @normojs/page
-        |- @normojs-plugin // @normojs/plugin
-        |- @normojs-store // @normojs/store
-        index.ts
-        type.ts
-	|- pnpm-workspace.yaml
-	
-```
-
-
-
-
-
-## Template
-
-branch: [template](./tree/template )
-
-
-
-## Framework
-
-
-
 ## Framework
 
 branch: [master](./tree/master)
@@ -78,15 +43,13 @@ yarn run example:dev
 
 
 
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
 
 
+>  手把手教你使用nodejs编写cli
+>
+> doc: https://juejin.cn/post/6844903702453551111
 
-doc: https://juejin.cn/post/6844903702453551111
+
 
 #### 参与贡献
 

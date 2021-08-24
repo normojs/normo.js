@@ -12,6 +12,10 @@ import {_eval} from './eval'
 import {buildConfig} from './build'
 // 开发者的项目根路径
 const projectRoot = process.cwd()
+
+// TODO: 获取根路径文件列表，筛选出文件：normo.config
+    
+
 const fileName = 'normo.config.ts'
 // 返回相对路径
 const relativePath = path.relative(projectRoot, '/'+fileName).replace(/\\/g, '/')
