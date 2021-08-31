@@ -1,4 +1,5 @@
 import path from 'path'
+import {resolveAlias} from './utils'
 import { createServer } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Layouts from 'vite-plugin-vue-layouts'
@@ -14,7 +15,6 @@ import {buildConfig} from './build'
 const projectRoot = process.cwd()
 
 // TODO: 获取根路径文件列表，筛选出文件：normo.config
-    
 
 const fileName = 'normo.config.ts'
 // 返回相对路径
@@ -30,18 +30,22 @@ let configJsCode:string = 'module.exports = {}'
 
 ;(async () => {
   configJsCode = await buildConfig(resolvePath, false)
+  
+  // 使用@microflows/nodevm
   let viteConfig =  await _eval(configJsCode)
   viteConfig = viteConfig.default ? viteConfig.default : viteConfig
+  
+  
   // TODO: 默认配置
-
   const server = await createServer({
     // any valid user config options, plus `mode` and `configFile`
     configFile: false,
     root: projectRoot,
     resolve: {
       alias: {
-        '@/': `${path.resolve(projectRoot, '')}/`,
-        ...viteConfig.alias
+        // '@/': `${path.resolve(projectRoot, '')}/`,
+        // 相对路径转绝对路径
+        ...resolveAlias(projectRoot, viteConfig.alias)
       }
     },
     publicDir: viteConfig.publicDir ? viteConfig.publicDir : 'static',

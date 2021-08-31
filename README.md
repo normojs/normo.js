@@ -20,7 +20,7 @@ branch: [master](./tree/master)
 * TypeScript
 * [standardjs](https://github.com/standard/standard) - 代码规范
 
-#### X 安装教程
+#### 安装教程
 
 ```shell
 # 下载代码

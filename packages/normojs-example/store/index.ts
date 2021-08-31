@@ -1,4 +1,4 @@
-import { cacheGet } from '@/utils/cache'
+// import { cacheGet } from '@/utils/cache'
 
 // 严格模式，默认true
 export const strict = true // cacheGet()
