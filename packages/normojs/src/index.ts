@@ -1,22 +1,66 @@
 import path from 'path'
-import {resolveAlias} from './utils'
-import { createServer } from 'vite'
 import Vue from '@vitejs/plugin-vue'
+
+import normoCliConfig from './normo.cli.config'
+
+import { createServer } from 'vite'
+import { Command } from 'commander'
+const chalk = require('chalk')
+const program = new Command()
+program.name('normo')
+
+import {resolveAlias, getConfigList} from './utils'
+
+// TODO: 调用 @normojs-core-* 包
 import Layouts from 'vite-plugin-vue-layouts'
 import Pages from 'vite-plugin-pages'
 import ViteComponents from 'vite-plugin-components'
 import Store from 'vite-plugin-store'
 
 
-import {_eval} from './eval'
+import {$eval} from './eval'
 
 import {buildConfig} from './build'
 // 开发者的项目根路径
 const projectRoot = process.cwd()
 
-// TODO: 获取根路径文件列表，筛选出文件：normo.config
+
+// TODO: 处理命令行命令参数，获取默认的配置项
+// 默认的配置对象
+const defaultConfig:any = {};
+
+// 使用样例集合
+const usageList:any = [];
+
+// 遍历配置到当前的程序里面
+Object.entries(normoCliConfig).forEach(([key, value]) => {
+    defaultConfig[key] = value.default;
+    usageList.push(value.usage)
+    program.option(value.option, value.descriptor);
+});
+
+// 监听--help事件，在命令行显示样例
+program.on('--help',function () {
+    console.log('Examples:');
+    usageList.forEach((line:any)=>{
+        console.log(`  ${chalk.green(line)} \r`);
+    })
+})
+// 解析用户执行时的参数
+program.parse(process.argv); 
+
+// TODO: merge
+let options = mergeOtions(defaultConfig,program);
+
 
 const fileName = 'normo.config.ts'
+
+let configList = await getConfigList(projectRoot, '')
+// TODO: 判断是否存在
+
+// TODO: 获取最终的配置
+
+
 // 返回相对路径
 const relativePath = path.relative(projectRoot, '/'+fileName).replace(/\\/g, '/')
 // 返回绝对路径
@@ -32,7 +76,7 @@ let configJsCode:string = 'module.exports = {}'
   configJsCode = await buildConfig(resolvePath, false)
   
   // 使用@microflows/nodevm
-  let viteConfig =  await _eval(configJsCode)
+  let viteConfig =  await $eval(configJsCode)
   viteConfig = viteConfig.default ? viteConfig.default : viteConfig
   
   

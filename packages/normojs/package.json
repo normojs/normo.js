@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "normojs": "./scripts/normojs.js"
+    "normo": "./scripts/normojs.js"
   },
-  "author": "",
+  "author": "normojs <normojs@qq.com>",
   "license": "ISC",
   "scripts": {
-    "dev": "npm run build -- --watch --ignore-watch example",
+    "dev": "npm run build --watch",
     "build": "tsup src/index.ts --dts --format cjs,esm",
     "start": "nodemon --watch 'src/**/*.ts' --exec ts-node src/index.ts",
     "example:dev": "npm -C  example run dev"
@@ -25,6 +25,8 @@
     "@vue/compiler-sfc": "^3.0.5",
     "@vueuse/core": "^4.0.8",
     "@vueuse/head": "^0.2.3",
+    "chalk": "^4.1.2",
+    "commander": "^8.1.0",
     "esbuild": "^0.12.9",
     "fast-glob": "^3.2.7",
     "nprogress": "^0.2.0",

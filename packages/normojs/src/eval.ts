@@ -5,7 +5,7 @@ let result: Promise<any>
 const fetcher = ()=>{
   return Promise.resolve(incode)
 }
-export const _eval = function(code:string){
+export const $eval = function(code:string){
   if(incode && result && incode === code ){
     return result
   }
