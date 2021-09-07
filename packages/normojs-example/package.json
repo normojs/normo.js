@@ -1,5 +1,5 @@
 {
-  "name": "normojs-demo",
+  "name": "normojs-example",
   "version": "0.0.1",
   "description": "normojs",
   "main": "index.js",
@@ -9,13 +9,13 @@
   "author": "",
   "license": "MIT",
   "scripts": {
-    "dev": "normojs",
-    "dev:open": "normojs --port 3333 --open",
+    "dev": "normo",
+    "dev:open": "normo --port 3333 --open",
     "build": "cross-env NODE_ENV=production vite build",
     "ls-lint": "ls-lint",
     "lint": "eslint --ext .js,.ts,.vue src/",
     "lint:fix": "eslint --fix --ext .js,.ts,.vue src/",
-    "normojs": "normojs --host 0.0.0.0 --port 3333 --config normo.config.ts"
+    "dev:normojs": "normo --host 0.0.0.0 --port 3333 --config normo.config.ts"
   },
   "lint-staged": {
     "nopackages/**/{src,__tests__,config}/**/**.{js,vue,ts,tsx}": [
@@ -23,7 +23,7 @@
     ]
   },
   "dependencies": {
-    "normo": "^0.1.1"
+    "normojs": "workspace:^0.0.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.35",

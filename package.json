@@ -14,10 +14,12 @@
     "vite2"
   ],
   "scripts": {
-    "dev": "npm run build -- --watch --ignore-watch example",
+    "dev": "npm -C 'packages/normojs' run build -- --watch --ignore-watch 'packages/normojs-example'",
+    "dev2": "nodemon --watch 'packages/normojs' --ignore 'packages/normojs-example' --ignore 'dist' --exec 'npm -C packages/normojs run dev'",
+    "links": "npm link ./packages/normojs",
     "build": "tsup src/index.ts --dts --format cjs,esm",
     "start": "nodemon --watch 'src/**/*.ts' --exec ts-node src/index.ts",
-    "example:dev": "npm -C example run dev"
+    "dev:example": "npm -C packages/normojs-example run dev:normojs"
   },
   "lint-staged": {
     "packages/**/{src,__tests__,config}/**/**.{js,vue,ts,tsx}": [

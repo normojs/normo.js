@@ -29,10 +29,13 @@ git clone https://gitee.com/source-code-online/normojs.git
 cd normojs
 
 # 安装依赖包
-yarn i
+pnpm i
 
-# 本地调试normojs
+# 本地normo命令
+cd packages/normojs
 npm link
+
+# 未完待续
 
 # 运行normojs
 yarn run dev

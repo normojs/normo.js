@@ -1,13 +1,12 @@
 import path from 'path'
 import Vue from '@vitejs/plugin-vue'
 
-import normoCliConfig from './normo.cli.config'
 
 import { createServer } from 'vite'
-import { Command } from 'commander'
-const chalk = require('chalk')
-const program = new Command()
-program.name('normo')
+
+
+
+
 
 import {resolveAlias, getConfigList} from './utils'
 
@@ -21,58 +20,43 @@ import Store from 'vite-plugin-store'
 import {$eval} from './eval'
 
 import {buildConfig} from './build'
-// 开发者的项目根路径
-const projectRoot = process.cwd()
+// 开发者的项目根路径，调用normo命令的地址
+const cwdPath = process.cwd()
 
-
+import {config, usages} from './command'
+console.log('config,: ', config, '\n')
 // TODO: 处理命令行命令参数，获取默认的配置项
 // 默认的配置对象
-const defaultConfig:any = {};
+// const defaultConfig:any = {};
 
-// 使用样例集合
-const usageList:any = [];
+// // 使用样例集合
+// const usageList:any = [];
 
-// 遍历配置到当前的程序里面
-Object.entries(normoCliConfig).forEach(([key, value]) => {
-    defaultConfig[key] = value.default;
-    usageList.push(value.usage)
-    program.option(value.option, value.descriptor);
-});
-
-// 监听--help事件，在命令行显示样例
-program.on('--help',function () {
-    console.log('Examples:');
-    usageList.forEach((line:any)=>{
-        console.log(`  ${chalk.green(line)} \r`);
-    })
-})
-// 解析用户执行时的参数
-program.parse(process.argv); 
+;(async () => {
 
 // TODO: merge
-let options = mergeOtions(defaultConfig,program);
+// let options = mergeOtions(defaultConfig, program);
 
 
 const fileName = 'normo.config.ts'
 
-let configList = await getConfigList(projectRoot, '')
+let configList = await getConfigList(cwdPath, '')
 // TODO: 判断是否存在
 
 // TODO: 获取最终的配置
 
 
 // 返回相对路径
-const relativePath = path.relative(projectRoot, '/'+fileName).replace(/\\/g, '/')
+const relativePath = path.relative(cwdPath, '/'+fileName).replace(/\\/g, '/')
 // 返回绝对路径
-const resolvePath = path.join(projectRoot, '/'+fileName).replace(/\\/g, '/')
+const resolvePath = path.join(cwdPath, '/'+fileName).replace(/\\/g, '/')
 
 // TODO: xxx
 
 let configJsCode:string = 'module.exports = {}'
 // 1、读取配置文件 默认 normo.config.ts
 
-
-;(async () => {
+  return
   configJsCode = await buildConfig(resolvePath, false)
   
   // 使用@microflows/nodevm
@@ -84,12 +68,12 @@ let configJsCode:string = 'module.exports = {}'
   const server = await createServer({
     // any valid user config options, plus `mode` and `configFile`
     configFile: false,
-    root: projectRoot,
+    root: cwdPath,
     resolve: {
       alias: {
-        // '@/': `${path.resolve(projectRoot, '')}/`,
+        // '@/': `${path.resolve(cwdPath, '')}/`,
         // 相对路径转绝对路径
-        ...resolveAlias(projectRoot, viteConfig.alias)
+        ...resolveAlias(cwdPath, viteConfig.alias)
       }
     },
     publicDir: viteConfig.publicDir ? viteConfig.publicDir : 'static',

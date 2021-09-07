@@ -1,18 +1,17 @@
 {
   "name": "normojs",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "bin": {
-    "normo": "./scripts/normojs.js"
+    "normo": "./scripts/normojs.js",
+    "normojs": "./scripts/normojs.js"
   },
   "author": "normojs <normojs@qq.com>",
   "license": "ISC",
   "scripts": {
-    "dev": "npm run build --watch",
-    "build": "tsup src/index.ts --dts --format cjs,esm",
-    "start": "nodemon --watch 'src/**/*.ts' --exec ts-node src/index.ts",
-    "example:dev": "npm -C  example run dev"
+    "dev": "npm run build",
+    "build": "tsup src/index.ts --dts --format cjs,esm"
   },
   "lint-staged": {
     "nopackages/**/{src,__tests__,config}/**/**.{js,vue,ts,tsx}": [
@@ -30,6 +29,7 @@
     "esbuild": "^0.12.9",
     "fast-glob": "^3.2.7",
     "nprogress": "^0.2.0",
+    "tsup": "^4.11.2",
     "vite": "^2.1.2",
     "vite-plugin-components": "^0.8.3",
     "vite-plugin-pages": "^0.7.2",
@@ -42,7 +42,6 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
-    "nodemon": "^2.0.7",
     "vite-ssg": "^0.8.12"
   }
 }

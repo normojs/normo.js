@@ -1,6 +1,13 @@
 import fg from 'fast-glob'
 import path from 'path'
 import {clone}  from 'lodash'
+const chalk = require('chalk')
+export const log = {
+  green: (line:any)=>{
+    chalk.green(line)
+  }
+}
+
 const EMPTY_STRING = ''
 export function resolveAlias(rootPath:string, paths: any){
   let obj = clone(paths)
