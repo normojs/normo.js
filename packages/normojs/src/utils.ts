@@ -4,7 +4,8 @@ import {clone}  from 'lodash'
 const chalk = require('chalk')
 export const log = {
   green: (line:any)=>{
-    chalk.green(line)
+    // @ts-ignore
+    console.log(chalk.green(line))
   }
 }
 

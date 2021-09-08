@@ -1,4 +1,4 @@
-import { createApp, defineComponent } from 'vue'
+import { createApp, defineComponent } from 'normojs/node_modules/vue'
 import App from './app.vue'
 // const app = createApp({
 //   template: `<router-view />`
@@ -20,3 +20,5 @@ const router = createRouter({
 })
 app.use(router)
 app.mount('#app')
+
+console.log('xxxxxxxxxxxx')

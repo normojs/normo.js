@@ -27,6 +27,7 @@ export default {
   'force':{
     option: '-f, --force',
     descriptor: 'set reset cache',
+    defaultValue: false,
     usage: 'normo --force'
   }
 }

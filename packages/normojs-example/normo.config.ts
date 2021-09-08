@@ -12,6 +12,7 @@ export default {
   alias: {
     '~/': './',
     '@/': `${path.resolve(__dirname, '')}/`
+    // vue: 'vue'
     // vue: 'vue/dist/vue.esm-bundler.js' // 定义vue的别名，如果使用其他的插件，可能会用到别名
   },
   publicDir: 'static',
@@ -19,6 +20,11 @@ export default {
   pagesDir: 'pages',
   componentsDir: 'components',
   storeDir: 'store'
+  /*
+    envDir:
+    @see server.proxy
+    proxy: {}
+  */
 // build: {
 //   //   rollupOptions: {
 //   //     input: {

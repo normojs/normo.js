@@ -23,7 +23,11 @@
     ]
   },
   "dependencies": {
-    "normojs": "workspace:^0.0.1"
+    "normojs": "workspace:^0.0.1",
+    "vue": "^3.0.6",
+    "vue-demi": "^0.6.0",
+    "vue-router": "^4.0.4",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@types/node": "^14.14.35",

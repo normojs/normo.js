@@ -4,7 +4,6 @@ program.name('normo')
 
 import {log} from './utils'
 import normoCliConfig from './normo.cli.config'
-
 // 默认的配置对象
 const defaultConfig:any = {};
 // 使用样例集合
@@ -22,12 +21,11 @@ Object.entries(normoCliConfig).forEach(([key, value]:any) => {
 program.on('--help', function () {
   console.log('Examples:');
   usages.forEach((line:any)=>{
-      console.log(`  ${log.green(line)} \r`);
+    log.green(`${line}\r`)
   })
 })
 // 解析用户执行时的参数
 program.parse(process.argv);
-console.log('program; ', program.opts(), defaultConfig)
 const config= {
   ...defaultConfig,
   ...program.opts()

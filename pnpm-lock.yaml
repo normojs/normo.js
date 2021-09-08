@@ -49,13 +49,12 @@ importers:
       cross-env: ^7.0.2
       esbuild: ^0.12.9
       fast-glob: ^3.2.7
-      nodemon: ^2.0.7
       nprogress: ^0.2.0
       tsup: ^4.11.2
       vite: ^2.1.2
       vite-plugin-components: ^0.8.3
       vite-plugin-pages: ^0.7.2
-      vite-plugin-store: ^0.0.2
+      vite-plugin-store: ^0.0.4
       vite-plugin-vue-layouts: ^0.2.2
       vite-ssg: ^0.8.12
       vue: ^3.0.6
@@ -77,7 +76,7 @@ importers:
       vite: 2.5.0
       vite-plugin-components: 0.8.4_vite@2.5.0
       vite-plugin-pages: 0.7.2_vite@2.5.0+vue@3.2.4
-      vite-plugin-store: 0.0.2_vite@2.5.0
+      vite-plugin-store: 0.0.4_vite@2.5.0
       vite-plugin-vue-layouts: 0.2.2_vite@2.5.0
       vue: 3.2.4
       vue-demi: 0.6.2_vue@3.2.4
@@ -85,7 +84,6 @@ importers:
       vuex: 4.0.2_vue@3.2.4
     devDependencies:
       cross-env: 7.0.3
-      nodemon: 2.0.12
       vite-ssg: 0.8.12_fa31e973c0989b086227c89ddd11f58f
 
   packages/normojs-example:
@@ -98,9 +96,17 @@ importers:
       lint-staged: ^10.5.3
       normojs: workspace:^0.0.1
       typescript: ^4.0.2
+      vue: ^3.0.6
+      vue-demi: ^0.6.0
+      vue-router: ^4.0.4
+      vuex: ^4.0.2
       yorkie: ^2.0.0
     dependencies:
       normojs: link:../normojs
+      vue: 3.2.4
+      vue-demi: 0.6.2_vue@3.2.4
+      vue-router: 4.0.11_vue@3.2.4
+      vuex: 4.0.2_vue@3.2.4
     devDependencies:
       '@types/node': 14.17.14
       '@types/nprogress': 0.2.0
@@ -3938,8 +3944,8 @@ packages:
       - supports-color
     dev: false
 
-  /vite-plugin-store/0.0.2_vite@2.5.0:
-    resolution: {integrity: sha512-66V2WC5mbVDUh+tvKMiiLQv6kgy/VytyYO3hLCLw9HQVz10SkCC4CR7zzkvjxpRWzpOSgl+HrdO3F7NHRICScw==}
+  /vite-plugin-store/0.0.4_vite@2.5.0:
+    resolution: {integrity: sha512-121ayiSMESn37EcISnVY2Xb6eMViwCjUzEnZlAO0NkXEcWcAnMiiUbjR9z8GNnodVY525Z3Y+6JwS+xJISXreQ==}
     peerDependencies:
       vite: ^2.0.0
     dependencies:
