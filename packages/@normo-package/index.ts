@@ -20,7 +20,7 @@ return {
     async load(id) {
       if (id === ID) {
         return `
-          import store from '@normojs/store'; 
+          import store from '@normo/store'; 
           
           ${modules.map((module, index) => `import _package_${index} from '${module}'`).join(';\n')}
           ${styles.map(style => `import '${style}'`).join(';\n')}

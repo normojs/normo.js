@@ -14,7 +14,7 @@ import {resolveAlias, getConfigList} from './utils'
 import Layouts from 'vite-plugin-vue-layouts'
 import Pages from 'vite-plugin-pages'
 import ViteComponents from 'vite-plugin-components'
-import Store from 'vite-plugin-store'
+import Store from '@normo/store'
 
 
 import {$eval} from './eval'
@@ -74,7 +74,9 @@ let configJsCode:string = 'module.exports = {}'
         ...resolveAlias(cwdPath, viteConfig.alias)
       }
     },
-    publicDir: viteConfig.publicDir ? viteConfig.publicDir : 'static',
+    // TODO: 重写logger
+    // logger: {},
+    publicDir: viteConfig.publicDir || 'static',
     // TODO: 布局、组件、页面、store、中间件、插件
     plugins: [
       // 支持vue
@@ -90,21 +92,22 @@ let configJsCode:string = 'module.exports = {}'
         replaceSquareBrackets: false
       }),
       // https://github.com/antfu/vite-plugin-components
+      // TODO: 支持数组
       ViteComponents({
         dirs: [viteConfig.componentsDir || 'components'],
         deep: false
       }),
       // 状态：
       Store({
-        storeDir: viteConfig.storeDir || 'pages',
+        storeDir: viteConfig.storeDir || 'store',
         extensions: ['ts', 'js']
       })
     ],
-    // server: {
-    //   host: config.host,
-    //   port: config.port,
-    //   force: config.force
-    // }
+    server: {
+      host: config.host,
+      port: config.port,
+      force: config.force
+    }
   })
   await server.listen()
 })()

@@ -1,5 +1,5 @@
 {
-  "name": "@normojs/store",
+  "name": "@normo/store",
   "description": "File system based vuex plugin for Vite",
   "version": "0.0.1",
   "main": "dist/index.js",

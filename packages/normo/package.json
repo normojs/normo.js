@@ -1,5 +1,5 @@
 {
-  "name": "normojs",
+  "name": "normo",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@microflows/nodevm": "^3.5.3",
-    "@normojs/store": "workspace:^0.0.1",
+    "@normo/store": "workspace:^0.0.1",
     "@vitejs/plugin-vue": "^1.1.2",
     "@vue/compiler-sfc": "^3.0.5",
     "@vueuse/core": "^4.0.8",

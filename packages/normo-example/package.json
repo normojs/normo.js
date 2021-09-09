@@ -1,5 +1,5 @@
 {
-  "name": "normojs-example",
+  "name": "normo-example",
   "version": "0.0.1",
   "description": "normojs",
   "main": "index.js",
@@ -15,7 +15,7 @@
     "ls-lint": "ls-lint",
     "lint": "eslint --ext .js,.ts,.vue src/",
     "lint:fix": "eslint --fix --ext .js,.ts,.vue src/",
-    "dev:normojs": "normo --port 3333 --config normo.config.ts"
+    "dev:normo": "normo --host 0.0.0.0 --port 3333 --config normo.config.ts"
   },
   "lint-staged": {
     "nopackages/**/{src,__tests__,config}/**/**.{js,vue,ts,tsx}": [
@@ -23,7 +23,7 @@
     ]
   },
   "dependencies": {
-    "normojs": "workspace:^0.0.1",
+    "normo": "workspace:^0.0.1",
     "vue": "^3.0.6",
     "vue-demi": "^0.6.0",
     "vue-router": "^4.0.4",
