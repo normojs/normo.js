@@ -77,9 +77,10 @@ let configJsCode:string = 'module.exports = {}'
       // ],
         alias: {
           '@/': path.resolve(cwdPath,'/'),
-          '@normo/vue': `normo/node_modules/vue`,
+          '@normo/vue': `normo/node_modules/vue/dist/vue.esm-bundler.js`,
           '@normo/vue-router': `normo/node_modules/vue-router`,
           '@normo/vuex': 'normo/node_modules/vuex',
+          vue: 'vue/dist/vue.esm-bundler.js'
         }
     },
     //   alias: {
@@ -104,11 +105,11 @@ let configJsCode:string = 'module.exports = {}'
         layoutsDir: viteConfig.layoutsDir || 'layouts'
       }),
       // https://github.com/hannoeru/vite-plugin-pages
-      Pages({
-        pagesDir: viteConfig.pagesDir || 'pages',
-        extensions: ['vue', 'js', 'md'],
-        replaceSquareBrackets: false
-      }),
+      // Pages({
+      //   pagesDir: viteConfig.pagesDir || 'pages',
+      //   extensions: ['vue', 'js', 'md'],
+      //   replaceSquareBrackets: false
+      // }),
       // https://github.com/antfu/vite-plugin-components
       // TODO: 支持数组
       ViteComponents({
