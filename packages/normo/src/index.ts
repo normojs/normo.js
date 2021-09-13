@@ -1,12 +1,7 @@
 import path from 'path'
 import Vue from '@vitejs/plugin-vue'
 
-
 import { createServer } from 'vite'
-
-
-
-
 
 import {resolveAlias, getConfigList} from './utils'
 
@@ -63,6 +58,7 @@ let configJsCode:string = 'module.exports = {}'
   
   log.green(`file config: ${JSON.stringify(viteConfig)}`)
   console.log('----:cwdPath>', path.resolve(cwdPath,'./'))
+  console.log("cwdPath", path.resolve(cwdPath, './node_modules/normo/node_modules/vue'))
   // TODO: 默认配置
   const server = await createServer({
     // any valid user config options, plus `mode` and `configFile`
@@ -76,11 +72,18 @@ let configJsCode:string = 'module.exports = {}'
 
       // ],
         alias: {
-          '@/': path.resolve(cwdPath,'/'),
-          '@normo/vue': `normo/node_modules/vue/dist/vue.esm-bundler.js`,
-          '@normo/vue-router': `normo/node_modules/vue-router`,
-          '@normo/vuex': 'normo/node_modules/vuex',
-          vue: 'vue/dist/vue.esm-bundler.js'
+          // macos
+          // '@/': path.resolve(cwdPath,'/'),
+          '@': path.resolve(cwdPath,'./'),
+          vue$: 'vue/dist/vue.esm-bundler.js'
+          
+          // 'vue':'vue/dist/vue.esm-bundler.js'
+          // 'vue': path.resolve(cwdPath,'./node_modules/normo/node_modules/vue/dist/vue.esm-bundler.js'),
+          // 'vue-router': path.resolve(cwdPath,'./node_modules/normo/node_modules/vue-router'),
+          // 'vuex':  path.resolve(cwdPath, './node_modules/normo/node_modules/vuex'),
+          // 'vuex':  path.resolve(cwdPath, './node_modules/normo/node_modules/vuex'),
+          // // /dist/vue.esm-bundler.js
+          // 'vue': path.resolve(cwdPath,'./node_modules/normo/node_modules/vue/dist/vue.esm-bundler.js')
         }
     },
     //   alias: {
@@ -105,11 +108,11 @@ let configJsCode:string = 'module.exports = {}'
         layoutsDir: viteConfig.layoutsDir || 'layouts'
       }),
       // https://github.com/hannoeru/vite-plugin-pages
-      // Pages({
-      //   pagesDir: viteConfig.pagesDir || 'pages',
-      //   extensions: ['vue', 'js', 'md'],
-      //   replaceSquareBrackets: false
-      // }),
+      Pages({
+        pagesDir: viteConfig.pagesDir || 'pages',
+        extensions: ['vue', 'js', 'md'],
+        replaceSquareBrackets: false
+      }),
       // https://github.com/antfu/vite-plugin-components
       // TODO: 支持数组
       ViteComponents({
@@ -118,7 +121,7 @@ let configJsCode:string = 'module.exports = {}'
       }),
       // 状态：
       Store({
-        base: '@normo/vuex',
+        base: 'vuex',
         storeDir: viteConfig.storeDir || 'store',
         extensions: ['ts', 'js']
       })
@@ -126,7 +129,7 @@ let configJsCode:string = 'module.exports = {}'
     server: {
       host: config.host,
       port: config.port,
-      force: config.force
+      force: true //config.force
     }
   })
   await server.listen()

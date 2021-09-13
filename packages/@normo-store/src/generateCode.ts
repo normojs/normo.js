@@ -1,6 +1,6 @@
 export const generateCode = function(root: any, userOptions: UserOptions = {}) {
  
-  const importCode = `import { createStore } from ${userOptions.base || 'vuex'}`
+  const importCode = `import { createStore } from '${userOptions.base || 'vuex'}'`
   return `
   ${importCode}
   // ================= 生成了store code ==================

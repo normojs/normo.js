@@ -1,4 +1,4 @@
-import { watch, computed } from '@normo/vue'
+import { watch, computed } from 'vue'
 import { usePreferredDark } from '@vueuse/core'
 import { colorSchema } from '../store'
 

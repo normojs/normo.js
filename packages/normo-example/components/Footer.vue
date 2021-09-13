@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@normo/vue'
+import { defineComponent } from 'vue'
 import { isDark } from '@/utils'
 
 export default defineComponent({

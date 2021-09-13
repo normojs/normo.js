@@ -5,7 +5,7 @@ import {
   h,
   defineComponent,
   shallowReactive,
-} from '@normo/vue'
+} from 'vue'
 import { RouteRecordRaw } from 'vue-router'
 
 export function setupLayouts(routes: RouteRecordRaw[]) {
