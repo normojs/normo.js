@@ -11,9 +11,9 @@ import { createServer } from 'vite'
 import {resolveAlias, getConfigList} from './utils'
 
 // TODO: 调用 @normojs-core-* 包
-import Layouts from 'vite-plugin-vue-layouts'
+// import Layouts from 'vite-plugin-vue-layouts'
 import Pages from 'vite-plugin-pages'
-import ViteComponents from 'vite-plugin-components'
+// import ViteComponents from 'vite-plugin-components'
 import Store from '@normo/store'
 
 
@@ -80,6 +80,8 @@ let configJsCode:string = 'module.exports = {}'
           '@normo/vue': `normo/node_modules/vue`,
           '@normo/vue-router': `normo/node_modules/vue-router`,
           '@normo/vuex': 'normo/node_modules/vuex',
+          // 'vue': path.resolve(cwdPath,`node_modules/vue`),
+          vue: 'vue/dist/vue.esm-bundler.js',
         }
     },
     //   alias: {
@@ -100,9 +102,9 @@ let configJsCode:string = 'module.exports = {}'
       // 支持vue
       Vue(),
       // 布局 https://github.com/JohnCampionJr/vite-plugin-vue-layouts
-      Layouts({
-        layoutsDir: viteConfig.layoutsDir || 'layouts'
-      }),
+      // Layouts({
+      //   layoutsDir: viteConfig.layoutsDir || 'layouts'
+      // }),
       // https://github.com/hannoeru/vite-plugin-pages
       Pages({
         pagesDir: viteConfig.pagesDir || 'pages',
@@ -111,10 +113,10 @@ let configJsCode:string = 'module.exports = {}'
       }),
       // https://github.com/antfu/vite-plugin-components
       // TODO: 支持数组
-      ViteComponents({
-        dirs: [viteConfig.componentsDir || 'components'],
-        deep: false
-      }),
+      // ViteComponents({
+      //   dirs: [viteConfig.componentsDir || 'components'],
+      //   deep: false
+      // }),
       // 状态：
       Store({
         base: '@normo/vuex',

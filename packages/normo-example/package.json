@@ -23,7 +23,7 @@
     ]
   },
   "dependencies": {
-    "normo": "workspace:^0.0.1",
+    "normo": "^0.0.1",
     "vue-demi": "^0.6.0"
   },
   "devDependencies": {
