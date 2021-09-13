@@ -19,7 +19,7 @@ import {
   defineComponent,
   shallowReactive,
   watch,
-} from 'vue'
+} from '@normo/vue'
 import Cookies from 'js-cookie';
 import { useI18n } from 'vue-i18n';
 import { useRoute } from 'vue-router';

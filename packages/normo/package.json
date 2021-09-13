@@ -30,8 +30,7 @@
     "esbuild": "^0.12.9",
     "fast-glob": "^3.2.7",
     "nprogress": "^0.2.0",
-    "tsup": "^4.11.2",
-    "vite": "^2.1.2",
+    "vite": "^2.5.5",
     "vite-plugin-components": "^0.8.3",
     "vite-plugin-pages": "^0.7.2",
     "vite-plugin-vue-layouts": "^0.2.2",
@@ -40,14 +39,15 @@
     "vue-router": "^4.0.4",
     "vuex": "^4.0.2"
   },
+  "devDependencies": {
+    "tsup": "^4.11.2",
+    "cross-env": "^7.0.2",
+    "vite-ssg": "^0.8.12"
+  },
   "peerDependencies": {
     "vue": "^3.0.6",
     "vue-demi": "^0.6.0",
     "vue-router": "^4.0.4",
     "vuex": "^4.0.2"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.2",
-    "vite-ssg": "^0.8.12"
   }
 }

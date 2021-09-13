@@ -62,18 +62,36 @@ let configJsCode:string = 'module.exports = {}'
   viteConfig = viteConfig.default ? viteConfig.default : viteConfig
   
   log.green(`file config: ${JSON.stringify(viteConfig)}`)
+  console.log('----:cwdPath>', path.resolve(cwdPath,'./'))
   // TODO: 默认配置
   const server = await createServer({
     // any valid user config options, plus `mode` and `configFile`
     configFile: false,
     root: cwdPath,
     resolve: {
-      alias: {
-        // '@/': `${path.resolve(cwdPath, '')}/`,
-        // 相对路径转绝对路径
-        ...resolveAlias(cwdPath, viteConfig.alias)
-      }
+      // alias:[
+      //   {
+      //     find: '@/', replacement: path.resolve(cwdPath,'/')
+      //   },
+
+      // ],
+        alias: {
+          '@/': path.resolve(cwdPath,'/'),
+          '@normo/vue': `normo/node_modules/vue`,
+          '@normo/vue-router': `normo/node_modules/vue-router`,
+          '@normo/vuex': 'normo/node_modules/vuex',
+        }
     },
+    //   alias: {
+    //     'vue': `normo/node_modules/vue`,
+    //     'vue-router': `normo/node_modules/vue-router`,
+    //     // vue: 'vue/dist/vue.esm-bundler.js'
+    //     // 'vuex': './normojs/node_modules/vuex',
+    //     '@/': `${path.resolve(cwdPath, '')}/`,
+    //     // 相对路径转绝对路径
+    //     // ...resolveAlias(cwdPath, viteConfig.alias)
+    //   }
+    // },
     // TODO: 重写logger
     // logger: {},
     publicDir: viteConfig.publicDir || 'static',
@@ -99,6 +117,7 @@ let configJsCode:string = 'module.exports = {}'
       }),
       // 状态：
       Store({
+        base: '@normo/vuex',
         storeDir: viteConfig.storeDir || 'store',
         extensions: ['ts', 'js']
       })

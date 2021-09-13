@@ -26,10 +26,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref } from '@normo/vue'
 
-import { useRouter } from 'vue-router'
-import { mapState } from 'vuex'
+import { useRouter } from '@normo/vue-router'
+import { mapState } from '@normo/vuex'
 export default defineComponent({
   setup () {
     const name = ref('')

@@ -19,12 +19,15 @@
     "dev": "concurrently --names store,normo.js -c bgGreen,bgRed 'npm run store:dev' 'npm run normojs:dev'",
     
     "links": "npm link ./packages/normo",
-    "example:dev": "nodemon --exec 'npm -C packages/normo-example run dev:normo'"
+    "example:dev": "nodemon --watch /** --exec 'npm -C packages/normo-example run dev:normo'"
   },
   "lint-staged": {
     "packages/**/{src,__tests__,config}/**/**.{js,vue,ts,tsx}": [
       "eslint --ext .js,.vue,.ts --fix"
     ]
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.172",
@@ -40,10 +43,7 @@
     "ts-node": "^10.0.0",
     "tsup": "^4.11.2",
     "typescript": "^4.0.2",
-    "vite": "^2.5.5",
     "yorkie": "^2.0.0"
-  },
-  "dependencies": {
-    "lodash": "^4.17.21"
   }
+ 
 }

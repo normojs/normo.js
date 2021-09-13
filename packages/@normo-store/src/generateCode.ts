@@ -1,6 +1,8 @@
-export const generateCode = function(root: any) {
+export const generateCode = function(root: any, userOptions: UserOptions = {}) {
+ 
+  const importCode = `import { createStore } from ${userOptions.base || 'vuex'}`
   return `
-  import { createStore } from 'vuex'
+  ${importCode}
   // ================= 生成了store code ==================
   ${root.code}
   export const root = ${JSON.stringify({ ...root, code: '' })}

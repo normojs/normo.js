@@ -114,6 +114,8 @@ export interface PageDirOptions {
  * Plugin options.
  */
 interface Options {
+  // 默认 'vuex'
+  base?: string
   /**
    * 状态组件的相对路径
    * Relative path to the directory to search for store components.

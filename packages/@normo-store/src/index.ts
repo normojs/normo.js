@@ -58,7 +58,7 @@ function storePlugin(userOptions: UserOptions = {}): Plugin {
         */
 
         // const exportCode = ''//readFileSync(join(__dirname, './epxortCode.ts'), 'utf-8')
-        return generateCode(root)
+        return generateCode(root, userOptions)
       }
     },
     configureServer(server) {
