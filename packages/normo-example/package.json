@@ -23,8 +23,7 @@
     ]
   },
   "dependencies": {
-    "normo": "^0.0.1",
-    "vue-demi": "^0.6.0"
+    "normo": "^0.0.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.35",

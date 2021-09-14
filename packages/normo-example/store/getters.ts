@@ -1,3 +1,3 @@
-export const getIndex = function({ state }: any, params: any) {
+export const getIndex = function ({ state }: any, params: any) {
   return state.path
 }

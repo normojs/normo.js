@@ -1,7 +1,7 @@
 export default {
   getUserRoleInfo: (state) => {
-    return `${state.path}-user role getters-${Math.random()}`
-  },
+    return `${state.path}-user12 role getters-${Math.random()}`
+  }
 }
 
 /* export const getUserRoleInfo = (state) => {

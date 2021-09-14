@@ -1,7 +1,14 @@
 <template>
   <hr>
   sotre: {{ account }}
+  <br>
+  ---
+  <br>
   {{ userRoleInfo }}
+  <br>
+  {{ getUserRoleInfo }}
+  <br>
+  ===
   <div>
     <p>
       <a href="https://github.com/fulus06/normojs" target="_blank"> normojs </a>
@@ -29,7 +36,7 @@
 import { defineComponent, ref } from 'vue'
 
 import { useRouter } from 'vue-router'
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 export default defineComponent({
   setup () {
     const name = ref('')
@@ -54,7 +61,11 @@ export default defineComponent({
       userRole: state => state.user.role,
       // @ts-nocheck
       userRoleInfo: state => state.user.role.info
+    }),
+    ...mapGetters('user/role', {
+      getUserRoleInfo: 'getUserRoleInfo'
     })
+
   }
 })
 </script>

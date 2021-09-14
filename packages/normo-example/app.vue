@@ -1,1 +1,4 @@
-<template>1<router-view /></template>
+<template>
+  {{ Math.random() }}
+  <router-view />
+</template>

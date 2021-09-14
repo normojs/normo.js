@@ -9,7 +9,7 @@ import App from './app.vue'
 //   template: '<router-view />'
 // })
 
-import { createStore } from 'vuex'
+// import { createStore } from 'vuex'
 const app = createApp(App)
 // console.log('App: ', App)
 app.use(store)

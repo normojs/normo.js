@@ -5,6 +5,8 @@ export const generateCode = function(root: any, userOptions: UserOptions = {}) {
   ${importCode}
   // ================= 生成了store code ==================
   ${root.code}
+  // TODO: loadModules(fileList)方法，生成root.code
+
   export const root = ${JSON.stringify({ ...root, code: '' })}
   // ================= end store code ==================
 
@@ -36,12 +38,11 @@ export const generateCode = function(root: any, userOptions: UserOptions = {}) {
     // 如果全局开启，则添加到模块
     setModulesNamespaced(generatedStore)
   }
-  const _store = window.store
-  if (!window.store) {
-    console.log('不存在store, 创建generatedStore： ', generatedStore)
-    window.store = createStore(generatedStore)
+  const $normo = createStore(generatedStore)
+  if(window){
+    window.$normo = $normo
   }
-  export const store = window.store
+  export const store = $normo
   export { generatedStore }
 
   const loadingTime = Date.now()
@@ -50,15 +51,31 @@ export const generateCode = function(root: any, userOptions: UserOptions = {}) {
 
   let globalVar = 0
 
-  let hotEvent = null
+  const hotModules = ['getters','mutations','actions']
+
+  let hotEvent = new Proxy({}, {
+    set(target, key, value) {
+      console.log('TODO: 更新store', key, value, $normo)
+      if(value && hotModules.includes(value.module)){
+        // TODO: store.hotUpdate()
+      }else{
+
+      }
+      return Reflect.set(target, key, value);
+    }
+  })
   if (import.meta.hot) {
     import.meta.hot.on('vite-plugin-store-update', (data) => {
       // TODO: 有时会有两次的更新，做防止抖动
       globalVar++
       // 判断类型
-      hotEvent = data
+      hotEvent.data = data
       console.log('通知：自定义---------------------------globalVar', globalVar, loadingTime, data)
     })
+    // 
+
+
+
 
     import.meta.hot.accept((newModule) => {
       console.log('操作：accept state update ...hotEvent', hotEvent, loadingTime)

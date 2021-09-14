@@ -38,6 +38,8 @@ export function handleHMR(
       type: 'hot-update',
     } */
 
+    console.log(';;;;;;;;;isStoreDir: ', isStoreDir)
+
     if (isStoreDir) {
       const fileName = getPathName(path)
       // 如果修改的文件名: mutations、actions、getters
@@ -47,7 +49,11 @@ export function handleHMR(
           type: 'custom',
           event: 'vite-plugin-store-update',
           data: { // hotEvent
+            // 废弃字段
             type: 'hot-update',
+            // TODO: 填写 state、index、getters等
+            module: fileName, // getters/mutations/actions
+            file: fileName
           },
         })
       }

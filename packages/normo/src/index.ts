@@ -129,7 +129,8 @@ let configJsCode:string = 'module.exports = {}'
     server: {
       host: config.host,
       port: config.port,
-      force: true //config.force
+      force: config.force,
+      hmr: false
     }
   })
   await server.listen()
