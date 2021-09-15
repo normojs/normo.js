@@ -6,6 +6,7 @@ import { HMR_MODULE_NAMES } from './constants'
 export function handleHMR(
   server: ViteDevServer,
   options: ResolvedOptions,
+  generateRoot:any,
   storeFilePaths?: string[],
 ) {
   const { ws, watcher } = server
@@ -30,7 +31,6 @@ export function handleHMR(
   // TODO: 删除、添加
   watcher.on('change', (file) => {
     const path = slash(file)
-
     const isStoreDir = path.startsWith(`${options.storeDir}/`)
 
     /* const hotEvent: any = {
@@ -38,13 +38,19 @@ export function handleHMR(
       type: 'hot-update',
     } */
 
-    console.log(';;;;;;;;;isStoreDir: ', isStoreDir)
+    console.log(';;;;;;;;;isStoreDir: ', isStoreDir, options)
 
     if (isStoreDir) {
       const fileName = getPathName(path)
       // 如果修改的文件名: mutations、actions、getters
       if (HMR_MODULE_NAMES.includes(fileName)) {
         // TODO: 防抖
+        let moduleOption = 
+        generateRoot.moduleOptions.filter((item:any)=>{
+          console.log('--: \n', item.fullPath, '\n', path)
+          console.log('============')
+          return path == item.fullPath
+        })
         server.ws.send({
           type: 'custom',
           event: 'vite-plugin-store-update',
@@ -53,7 +59,8 @@ export function handleHMR(
             type: 'hot-update',
             // TODO: 填写 state、index、getters等
             module: fileName, // getters/mutations/actions
-            file: fileName
+            file: path,
+            option: moduleOption
           },
         })
       }

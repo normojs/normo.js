@@ -177,6 +177,8 @@ export interface ResolvedOptions extends Options {
    */
   root: string
   storeDir: string
+  // 绝对路径
+  resolveStoreDir: string
   /**
    * Page Dir as a normalized array of PageDirOptions
    */

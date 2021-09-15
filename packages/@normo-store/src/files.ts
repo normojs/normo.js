@@ -13,6 +13,5 @@ export async function getFilesFromPath(path: string, extensions?: string[], excl
     onlyFiles: true,
     cwd: path,
   })
-
   return files
 }

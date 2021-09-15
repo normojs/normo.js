@@ -6,7 +6,8 @@
   <br>
   {{ userRoleInfo }}
   <br>
-  {{ getUserRoleInfo }}
+
+  getter: {{ getUserRoleInfo }}
   <br>
   ===
   <div>

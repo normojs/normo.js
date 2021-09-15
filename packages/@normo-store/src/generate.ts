@@ -38,8 +38,10 @@ export function generateOptions(filePaths: string[], storeDir: string, options: 
   // const moduleOptionsMap: ModuleOptionsMap = {}
 
   const pluginOptions: PluginOption[] = []
+  console.log('filePath; ', storeDir)
 
   for (const filePath of filePaths) {
+    // TODO: filtpath 是相对路径还是绝对路径
     // 去除后缀
     const resolvedPath = filePath.replace(extensionsRE, '')
     const componentPath = storeDir.startsWith('/') ?`${storeDir}/${filePath}`:`/${storeDir}/${filePath}`
@@ -196,17 +198,15 @@ export function generateClientRoot(moduleOptions: ModuleOptions[], options: Reso
   insertArr.push(...root.modules.__root__.inmodules)
   insertArr.push('}')
   root.modules.__root__.variables.unshift('const generatedStore = {')
-  // const last = root.modules.__root__.variables.pop()
   root.modules.__root__.variables.push(...insertArr)
   root.modules.__root__.variables.push('}')
-  // root.modules.__root__.variables.push('export default _generate_store_code')
-
-  // root.modules.__root__.variables.push(last)
 
   root.moduleNames = moduleNames
   root.tree = moduleOptionTree
 
   // TODO: 参考app.vue生成code
+ 
+  /* 重点： 生成code */
   const codes = []
   for (const name of moduleNames) {
     codes.push(root.modules[name].imports.join('\n'))
@@ -215,8 +215,13 @@ export function generateClientRoot(moduleOptions: ModuleOptions[], options: Reso
 
   codes.push(root.modules.__root__.imports.join('\n'))
   codes.push(root.modules.__root__.variables.join('\n'))
-  root.code = codes.join('\n')
-  return root
+  
+  
+  let result = {
+    ...root,
+    code: codes.join('\n')
+  }
+  return result // root
   // return `export default {
 
   // }`

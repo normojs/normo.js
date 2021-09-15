@@ -9,25 +9,27 @@ import { resolveOptions } from './options'
 import { MODULE_IDS, MODULE_ID_VIRTUAL } from './constants'
 
 import { generateCode } from './generateCode'
+let generateRoot: { moduleOptions: { [x: string]: any } } = {moduleOptions:{}}
 
 function storePlugin(userOptions: UserOptions = {}): Plugin {
   let config: ResolvedConfig | undefined
   let moduleOptions: ModuleOptions[]
 
   let storeFilePaths: string[] = [] // []
-  let storeDirPath = '' // 'e://xxx/store'
+  let resolveStoreDir = '' // 'e://xxx/store'
 
   const options: ResolvedOptions = resolveOptions(userOptions)
 
-  let generateRoot: { moduleOptions: { [x: string]: any } }
   return {
     name: MODULE_ID_VIRTUAL,
     enforce: 'pre',
     async configResolved(_config) {
       config = _config
       options.root = config.root
-      storeDirPath = normalizePath(resolve(options.root, options.storeDir))
-      options.storeDir = storeDirPath
+      resolveStoreDir = normalizePath(resolve(options.root, options.storeDir))
+      // TODO: 变成了绝对路径，使用
+      options.resolveStoreDir = resolveStoreDir
+      options.storeDir = resolveStoreDir
 
       //
       storeFilePaths = await getFilesFromPath(options.storeDir, options.extensions, options.exclude)
@@ -47,8 +49,9 @@ function storePlugin(userOptions: UserOptions = {}): Plugin {
         // pluginOptions = storeOptions.pluginOptions
 
         // 生成code
-        generateRoot = generateClientRoot(moduleOptions, options)
-        const root: any = generateRoot
+        let result = generateClientRoot(moduleOptions, options)
+        generateRoot.moduleOptions = result.moduleOptions
+        const root: any = result
         // return clientCode
         // TODO: 判断是否为开发环境
         /*
@@ -64,12 +67,12 @@ function storePlugin(userOptions: UserOptions = {}): Plugin {
     configureServer(server) {
       // const { ws, watcher } = server
       // handleHMR(server, generateRoot, options, storeFilePaths)
-      handleHMR(server, options)
+      handleHMR(server, options, generateRoot)
     },
     async handleHotUpdate(ctx) {
       const { file, server } = ctx
       // 热加载
-      const isPagesDir = file.startsWith(`${storeDirPath}/`)
+      const isPagesDir = file.startsWith(`${resolveStoreDir}/`)
       if (isPagesDir) {
         const { moduleGraph } = server
         const module = moduleGraph.getModuleById(MODULE_ID_VIRTUAL)

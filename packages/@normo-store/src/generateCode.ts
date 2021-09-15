@@ -1,13 +1,27 @@
 export const generateCode = function(root: any, userOptions: UserOptions = {}) {
  
-  const importCode = `import { createStore } from '${userOptions.base || 'vuex'}'`
+  const importVuexCode = `import { createStore } from '${userOptions.base || 'vuex'}'`
   return `
-  ${importCode}
+  export const root = ${JSON.stringify({ ...root })}
+  ${importVuexCode}
   // ================= 生成了store code ==================
-  ${root.code}
   // TODO: loadModules(fileList)方法，生成root.code
+  function loadModules() {
+    // const codes = []
+    // for (const name of root.moduleNames) {
+    //   codes.push(root.modules[name].imports.join('\\n'))
+    //   codes.push(root.modules[name].variables.join('\\n'))
+    // }
+    
+    // codes.push(root.modules.__root__.imports.join('\\n'))
+    // codes.push(root.modules.__root__.variables.join('\\n'))
+    // return codes
 
-  export const root = ${JSON.stringify({ ...root, code: '' })}
+    return generatedStore
+  }
+  ${root.code}
+  const codes = loadModules()
+
   // ================= end store code ==================
 
   /* 热加载 */
@@ -49,15 +63,16 @@ export const generateCode = function(root: any, userOptions: UserOptions = {}) {
   const lastHotTime = loadingTime
   console.log('[vite-plugin-store] loading: ', loadingTime)
 
-  let globalVar = 0
-
   const hotModules = ['getters','mutations','actions']
 
   let hotEvent = new Proxy({}, {
     set(target, key, value) {
-      console.log('TODO: 更新store', key, value, $normo)
       if(value && hotModules.includes(value.module)){
         // TODO: store.hotUpdate()
+        console.log('hot-event: ', value)
+        import('/store/actions.ts').then(resp=>{
+          console.log('store: resp', resp, generatedStore)
+        })
       }else{
 
       }
@@ -67,65 +82,12 @@ export const generateCode = function(root: any, userOptions: UserOptions = {}) {
   if (import.meta.hot) {
     import.meta.hot.on('vite-plugin-store-update', (data) => {
       // TODO: 有时会有两次的更新，做防止抖动
-      globalVar++
       // 判断类型
       hotEvent.data = data
-      console.log('通知：自定义---------------------------globalVar', globalVar, loadingTime, data)
+      console.log('通知：自定义---------------------------globalVar', loadingTime, data)
     })
     // 
 
-
-
-
-    import.meta.hot.accept((newModule) => {
-      console.log('操作：accept state update ...hotEvent', hotEvent, loadingTime)
-      if (hotEvent) {
-        const newStore = newModule.generatedStore
-        console.log('newStore ', newStore)
-        if (hotEvent.type === 'state') {
-          // 设置state
-          // TODO: 获取state，然后设置state
-
-          let hotState = null
-          // 判断是不是/index.ts
-          if (hotEvent.moduleInType === hotEvent.moduleName === 'index') {
-            //
-            hotState = newStore.state()
-          }
-          else {
-            // moduleName: "user/role/element"
-            const subModules = hotEvent.moduleName.split('/')
-            // TODO:
-          }
-
-          // TODO: 循环更新state： state => state.[user.role.menu].info,
-
-          window.store.hotUpdate(newStore)
-        }
-        else if (hotEvent.type === 'hot-update') {
-          window.store.hotUpdate(newStore)
-        }
-      }
-
-      // console.log('newStore.modules: ', newModule, newStore)
-      // let stateData = newStore.modules.account.state()
-
-      // window.store.commit('account/__init__', stateData)
-
-      // TODO: window.store.commit('account/__init__', stateData)
-      /*
-        TODO: 在handleHotUpdate方法中自动执行
-
-        判断修改的文件路径，如果是state、index文件
-        判断是否更改了state，比较出差异
-        如果更改了state，则循环被修改的
-
-        // state.user.role.menu.info
-        let diffObj = {...} // 如： {'user/role/menu': {path: 'new path'}}
-        window.store.commit('__hot_update_state__', diffObj)
-
-      */
-    })// end hot.accept
   }// end if
 
   // ============================================================
