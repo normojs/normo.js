@@ -1,5 +1,16 @@
 ## 还在开发中，请不要再生产环境中使用
 
+
+
+## QQ讨论群：572716762
+
+<img src="./document/source/normojs-qq.jpg" alt="图片替换文本" width="400" height="600" align="bottom" />
+
+
+
+
+
+
 # normojs
 
 #### 介绍 - 开发中，请不要在开发环境中使用... ...
