@@ -31,26 +31,24 @@ export function handleHMR(
   // TODO: 删除、添加
   watcher.on('change', (file) => {
     const path = slash(file)
-    const isStoreDir = path.startsWith(`${options.storeDir}/`)
+    const isStoreDir = path.startsWith(`${options.resolveStoreDir}/`)
 
     /* const hotEvent: any = {
       // type: state、full-reload、hot-update
       type: 'hot-update',
     } */
 
-    console.log(';;;;;;;;;isStoreDir: ', isStoreDir, options)
+    // console.log(';;;;;;;;;isStoreDir: ', isStoreDir, options)
 
     if (isStoreDir) {
       const fileName = getPathName(path)
       // 如果修改的文件名: mutations、actions、getters
       if (HMR_MODULE_NAMES.includes(fileName)) {
-        // TODO: 防抖
-        let moduleOption = 
-        generateRoot.moduleOptions.filter((item:any)=>{
-          console.log('--: \n', item.fullPath, '\n', path)
-          console.log('============')
-          return path == item.fullPath
-        })
+        let moduleOption = generateRoot.moduleOptions.filter((item:any)=>{
+            // console.log('--: \n', item.fullPath, '\n', path)
+            // console.log('============')
+            return path == item.fullPath
+          })
         server.ws.send({
           type: 'custom',
           event: 'vite-plugin-store-update',
@@ -61,6 +59,7 @@ export function handleHMR(
             module: fileName, // getters/mutations/actions
             file: path,
             option: moduleOption
+            // generateRoot
           },
         })
       }

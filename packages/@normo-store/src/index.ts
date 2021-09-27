@@ -29,7 +29,7 @@ function storePlugin(userOptions: UserOptions = {}): Plugin {
       resolveStoreDir = normalizePath(resolve(options.root, options.storeDir))
       // TODO: 变成了绝对路径，使用
       options.resolveStoreDir = resolveStoreDir
-      options.storeDir = resolveStoreDir
+      // options.storeDir = resolveStoreDir
 
       //
       storeFilePaths = await getFilesFromPath(options.storeDir, options.extensions, options.exclude)

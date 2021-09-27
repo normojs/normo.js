@@ -38,13 +38,14 @@ export function generateOptions(filePaths: string[], storeDir: string, options: 
   // const moduleOptionsMap: ModuleOptionsMap = {}
 
   const pluginOptions: PluginOption[] = []
-  console.log('filePath; ', storeDir)
 
   for (const filePath of filePaths) {
     // TODO: filtpath 是相对路径还是绝对路径
     // 去除后缀
     const resolvedPath = filePath.replace(extensionsRE, '')
-    const componentPath = storeDir.startsWith('/') ?`${storeDir}/${filePath}`:`/${storeDir}/${filePath}`
+    // 如 /store/xx.ts
+    //storeDir.startsWith('/') ?`${storeDir}/${filePath}`:`/${storeDir}/${filePath}`
+    const componentPath = storeDir.startsWith('/')?`${storeDir}/${filePath}`:`/${storeDir}/${filePath}`
     // resolvedPath: 'index' | 'user/index' | 'user/getters' | 'user/mutations'
     const temps = resolvedPath.split('/')
 

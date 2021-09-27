@@ -67,24 +67,32 @@ export const generateCode = function(root: any, userOptions: UserOptions = {}) {
 
   let hotEvent = new Proxy({}, {
     set(target, key, value) {
+      // @see packages/@normo-store/src/hmr.ts#52
+      let hotEventData = value
       if(value && hotModules.includes(value.module)){
         // TODO: store.hotUpdate()
-        console.log('hot-event: ', value)
-        import('/store/actions.ts').then(resp=>{
+        console.log('热加载参数: ', hotEventData)
+        console.log('热加载资源：', generatedStore)
+        /*
+          TODO: 根据moduleOption.resolvedPath或moduleOption.moduleName
+          获取到最上乘的module，修改当前module，然后更新
+        */
+        let moduleOption  = hotEventData.option[0]
+        // 根据moduleName获取root module
+        // 根据moduleName和moduleInType获取...
+        import('/store/user/role/getters.ts').then(resp=>{
           console.log('store: resp', resp, generatedStore)
         })
       }else{
-
+        // TODO: 更新state
       }
       return Reflect.set(target, key, value);
     }
   })
   if (import.meta.hot) {
     import.meta.hot.on('vite-plugin-store-update', (data) => {
-      // TODO: 有时会有两次的更新，做防止抖动
-      // 判断类型
-      hotEvent.data = data
-      console.log('通知：自定义---------------------------globalVar', loadingTime, data)
+      // 触发hotEvent set ↑↑↑
+      hotEvent.data = data 
     })
     // 
 

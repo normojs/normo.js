@@ -123,6 +123,10 @@ interface Options {
    */
   storeDir: string
   /**
+   * storeDir的绝对路径 如：e:/xx/example/src/store
+   */
+  resolveStoreDir?: string
+  /**
    * Relative path to the directory to search for page components.
    * @default 'src/pages'
    */
