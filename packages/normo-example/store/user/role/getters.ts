@@ -5,5 +5,6 @@
 // }
 
 export const getUserRoleInfo = (state: any) => {
-  return `${state.path}-user  9 role getters-${Math.random()}`
+  // const reust = state.path + '-user 3 role getters-' + Math.random() + '--2'
+  return '0252445'
 }

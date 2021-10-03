@@ -1,7 +1,15 @@
+import { UserOptions } from "./types"
+
+import setCode from './export/set'
+
 export const generateCode = function(root: any, userOptions: UserOptions = {}) {
  
   const importVuexCode = `import { createStore } from '${userOptions.base || 'vuex'}'`
   return `
+  // public function
+  ${setCode}
+  // end public function
+
   export const root = ${JSON.stringify({ ...root })}
   ${importVuexCode}
   // ================= 生成了store code ==================
@@ -52,6 +60,7 @@ export const generateCode = function(root: any, userOptions: UserOptions = {}) {
     // 如果全局开启，则添加到模块
     setModulesNamespaced(generatedStore)
   }
+  console.log('generatedStore: ', generatedStore)
   const $normo = createStore(generatedStore)
   if(window){
     window.$normo = $normo
@@ -80,8 +89,31 @@ export const generateCode = function(root: any, userOptions: UserOptions = {}) {
         let moduleOption  = hotEventData.option[0]
         // 根据moduleName获取root module
         // 根据moduleName和moduleInType获取...
-        import('/store/user/role/getters.ts').then(resp=>{
-          console.log('store: resp', resp, generatedStore)
+        import('/store/user/role/getters.ts?t='+Date.now()).then(resp=>{
+          // TODO: 使用_.setWith
+          let hotV = set('moduels/user/moduels/role/getters', resp)
+          console.log('store: resp', resp, resp.getUserRoleInfo)
+          console.log('----0:', $normo)
+          console.log('----1: ', hotV)
+          // $normo.hotUpdate(hotV)
+          $normo.hotUpdate({
+            modules: {
+              user: {
+                namespaced: true,
+                getters:{
+                  getInfo: resp.getUserRoleInfo
+                },
+                modules: {
+                  role: {
+                    namespaced: true,
+                    getters:{
+                      getUserRoleInfo: resp.getUserRoleInfo
+                    }
+                  }
+                }
+              }
+            }
+          })
         })
       }else{
         // TODO: 更新state

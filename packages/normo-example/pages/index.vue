@@ -1,4 +1,6 @@
 <template>
+  <br>
+  math {{ Math.random() }}
   <hr>
   sotre: {{ account }}
   <br>
@@ -7,7 +9,10 @@
   {{ userRoleInfo }}
   <br>
 
-  getter: {{ getUserRoleInfo }}
+  user/role/getter#getUserRoleInfo: {{ getUserRoleInfo }}
+  <br>
+  <br>
+  user/getter#getInfo: {{ getInfo }}
   <br>
   ===
   <div>
@@ -65,6 +70,9 @@ export default defineComponent({
     }),
     ...mapGetters('user/role', {
       getUserRoleInfo: 'getUserRoleInfo'
+    }),
+    ...mapGetters('user', {
+      getInfo: 'getInfo'
     })
 
   }

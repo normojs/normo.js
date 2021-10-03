@@ -5,13 +5,13 @@ export const state = () => {
   return {
     path: '/user',
     info: 'File system based vuex plugin for Vite',
-    token: null,
+    token: null
   }
 }
 
 // 使mutations.ts失效
 export const mutations = {
-  setInfo2({ state }: any, params: any) {
+  setInfo2 ({ state }: any, params: any) {
     state.info = params
-  },
+  }
 }

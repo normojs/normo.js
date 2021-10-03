@@ -10,17 +10,17 @@ export const state = () => {
   return {
     path: '/11',
     info: '111 1File system based vuex plugin for Vite',
-    token: null,
+    token: null
   }
 }
 
 export const mutations = {
-  token(state: any, data: any) {
+  token (state: any, data: any) {
     state.token = data
-  },
+  }
 }
 export const actions = {
-  token({ commit }: any, params: any) {
+  token ({ commit }: any, params: any) {
     commit('token', params)
-  },
+  }
 }
