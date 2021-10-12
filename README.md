@@ -5,13 +5,6 @@
 
 
 
-// ## QQ讨论群：572716762
-
-// <img src="./document/source/normojs-qq.jpg" alt="图片替换文本" width="400" height="600" align="bottom" />
-
-
-
-
 
 
 # normojs
