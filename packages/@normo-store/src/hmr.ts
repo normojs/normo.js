@@ -62,7 +62,7 @@ export function handleHMR(
             // generateRoot
           },
         })
-      }
+      } // not in HMR_MODULE_NAMES
       else {
         fullReload()
       }

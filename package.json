@@ -20,7 +20,7 @@
   "scripts": {
     "store:dev": "npm -C packages/@normo-store run dev",
     "normojs:dev": "npm -C packages/normo run build -- --watch --ignore-watch 'packages/normojs-example'",
-    "dev": "concurrently -t \"yyyy-MM-dd HH:mm:ss.SSS\" --names store,normo.js -c bgGreen,bgRed \"npm run store:dev\" \"npm run normojs:dev\"",
+    "dev": "concurrently -t \"yyyy-MM-dd HH:mm:ss.SSS\" --names store,normo.js -c bgGreen,#8EF9D9 \"npm run store:dev\" \"npm run normojs:dev\"",
     "links": "npm link ./packages/normo",
     "example:dev2": "nodemon --watch packages --exec \"npm -C packages/normo-example run dev:normo\"",
     "example:dev": "npm -C packages/normo-example run dev:normo"

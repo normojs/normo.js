@@ -89,8 +89,10 @@ export const generateCode = function(root: any, userOptions: UserOptions = {}) {
         let moduleOption  = hotEventData.option[0]
         // 根据moduleName获取root module
         // 根据moduleName和moduleInType获取...
+        // 如果是index，则刷新
         import('/store/user/role/getters.ts?t='+Date.now()).then(resp=>{
-          // TODO: 使用_.setWith
+          // TODO: 从generatedStore相应的路径获取namespaced，设置
+          // TODO: 使用set()方法
           let hotV = set('moduels/user/moduels/role/getters', resp)
           console.log('store: resp', resp, resp.getUserRoleInfo)
           console.log('----0:', $normo)
