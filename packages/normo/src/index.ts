@@ -8,7 +8,8 @@ import {resolveAlias, getConfigList} from './utils'
 // TODO: 调用 @normojs-core-* 包
 import Layouts from 'vite-plugin-vue-layouts'
 import Pages from 'vite-plugin-pages'
-import ViteComponents from 'vite-plugin-components'
+// import ViteComponents from 'vite-plugin-components'
+import ViteComponents from 'unplugin-vue-components/vite'
 import Store from '@normo/store'
 
 
@@ -120,6 +121,7 @@ let configJsCode:string = 'module.exports = {}'
         deep: false
       }),
       // 状态：
+      // @ts-ignore
       Store({
         base: 'vuex',
         storeDir: viteConfig.storeDir || 'store',

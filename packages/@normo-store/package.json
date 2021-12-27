@@ -38,7 +38,7 @@
     "vite": "^2.5.7"
   },
   "peerDependencies":{
-    "vuex": "^4.0.2"
+    "vuex": ">=4.0.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.6.5",
